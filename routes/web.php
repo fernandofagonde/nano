@@ -51,4 +51,21 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/{id}', ['as' => 'update', 'uses' => $controller . '@update']);
         Route::delete('/{id}', ['as' => 'destroy', 'uses' => $controller . '@destroy']);
     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Grupos
+    |--------------------------------------------------------------------------
+    */
+    $prefix = 'grupos';
+    $controller = 'GruposController';
+
+    Route::group(['prefix' => $prefix, 'as' => $prefix . '.'], function () use ($controller) {
+        Route::get('/', ['as' => 'index', 'uses' => $controller . '@index']);
+        Route::get('/create', ['as' => 'create', 'uses' => $controller . '@create']);
+        Route::post('/', ['as' => 'store', 'uses' => $controller . '@store']);
+        Route::get('/{id}/edit', ['as' => 'edit', 'uses' => $controller . '@edit']);
+        Route::put('/{id}', ['as' => 'update', 'uses' => $controller . '@update']);
+        Route::delete('/{id}', ['as' => 'destroy', 'uses' => $controller . '@destroy']);
+    });
 });

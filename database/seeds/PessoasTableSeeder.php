@@ -14,10 +14,12 @@ class PessoasTableSeeder extends Seeder
     {
         Pessoas::create([
             'nome' => 'Fernando Fagonde',
-            'email' => 'fernandofagonde@urcamp.edu.br',
-            'login' => 'fernandofagonde',
-            'senha' => '102030',
+            'email' => 'fernando@alvoradadapaz.org.br',
+            'login' => 'fernando',
+            'senha' => '123456',
             'fl_ativo' => true,
+            'fl_admin' => true,
+            'fl_login' => true,
         ]);
     }
 }

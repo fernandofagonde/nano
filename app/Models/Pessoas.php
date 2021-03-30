@@ -12,7 +12,7 @@ class Pessoas extends Authenticatable
     const CREATED_AT = 'dt_criacao';
     const UPDATED_AT = 'dt_modificacao';
 
-    protected $table = 'pessoas';
+    protected $table = 'pessoa';
 
     protected $fillable = [
         'nome',
@@ -21,6 +21,7 @@ class Pessoas extends Authenticatable
         'login',
         'senha',
         'fl_ativo',
+        'fl_admin',
     ];
 
     protected $hidden = [
@@ -29,6 +30,7 @@ class Pessoas extends Authenticatable
 
     protected $casts = [
         'fl_ativo' => 'boolean',
+        'fl_admin' => 'boolean',
     ];
 
     /**
@@ -69,6 +71,16 @@ class Pessoas extends Authenticatable
     public function getFlAtivoFormatadoAttribute()
     {
         return $this->attributes['fl_ativo'] ? 'Sim' : 'Não';
+    }
+
+    public function getFlAdminFormatadoAttribute()
+    {
+        return $this->attributes['fl_admin'] ? 'Sim' : 'Não';
+    }
+
+    public function getFlLoginFormatadoAttribute()
+    {
+        return $this->attributes['fl_login'] ? 'Sim' : 'Não';
     }
 
     public function getDtCriacaoFormatadoAttribute()

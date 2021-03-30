@@ -17,5 +17,12 @@
             </a>
         </li>
 
+        <li class="sidenav-item{{ set_active_path('grupos') }}">
+            <a href="{{ route('grupos.index') }}" class="sidenav-link">
+                <i class="sidenav-icon ion ion-md-paper"></i>
+                <div>Grupos</div>
+            </a>
+        </li>
+
     </ul>
 </div>

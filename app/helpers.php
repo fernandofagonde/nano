@@ -213,3 +213,17 @@ function timestamp_bra($timestamp)
 
     return Carbon::createFromFormat('Y-m-d H:i:s', $timestamp)->format('d/m/Y \à\s H:i\h');
 }
+
+
+function dia_da_semana($dia = null)
+{
+    $dia_da_semana = array('0'=>'Domingo', 
+    '1'=>'Segunda-feira', 
+    '2'=>'Terça-feira', 
+    '3'=>'Quarta-feira', 
+    '4'=>'Quinta-feira', 
+    '5'=>'Sexta-feira', 
+    '6'=>'Sábado');
+    return $dia_da_semana[$dia];
+}
+
