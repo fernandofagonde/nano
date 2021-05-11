@@ -7,16 +7,16 @@ use App\Models\Papeis;
 use App\Models\Grupos;
 use App\Models\Pessoas;
 
-class PapeisController extends Controller
+class MatriculasController extends Controller
 {
     /**
-     * @var Papeis
+     * @var Matriculas
      */
-    private $papeis;
+    private $matriculas;
 
-    public function __construct(Papeis $papeis)
+    public function __construct(Matriculas $matriculas)
     {
-        $this->papeis = $papeis;
+        $this->matriculas = $matriculas;
     }
 
     public function index()

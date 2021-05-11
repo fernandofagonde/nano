@@ -8,7 +8,7 @@ class Papeis extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'papel';
+    protected $table = 'papeis';
 
     protected $fillable = [
         'nome',

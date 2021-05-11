@@ -8,7 +8,7 @@ class Grupos extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'grupos';
+    protected $table = 'chamadas';
 
     protected $fillable = [
         'nome',

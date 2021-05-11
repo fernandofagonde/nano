@@ -12,7 +12,7 @@ class Pessoas extends Authenticatable
     const CREATED_AT = 'dt_criacao';
     const UPDATED_AT = 'dt_modificacao';
 
-    protected $table = 'pessoa';
+    protected $table = 'pessoas';
 
     protected $fillable = [
         'nome',
