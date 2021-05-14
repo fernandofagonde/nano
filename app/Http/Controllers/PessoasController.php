@@ -51,7 +51,7 @@ class PessoasController extends Controller
         $pessoa = new Pessoas();
         $is_edit = false;
 
-        return view('pessoas.create', compact('pessoas', 'is_edit'));
+        return view('pessoas.create', compact('pessoa', 'is_edit'));
     }
 
     public function store(PessoasRequest $request)

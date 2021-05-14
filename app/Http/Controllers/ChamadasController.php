@@ -7,7 +7,7 @@ use App\Models\Papeis;
 use App\Models\Grupos;
 use App\Models\Pessoas;
 
-class PapeisController extends Controller
+class ChamadasController extends Controller
 {
     /**
      * @var Papeis

@@ -22,6 +22,7 @@ class Pessoas extends Authenticatable
         'senha',
         'fl_ativo',
         'fl_admin',
+        'fl_login',
     ];
 
     protected $hidden = [
@@ -31,6 +32,7 @@ class Pessoas extends Authenticatable
     protected $casts = [
         'fl_ativo' => 'boolean',
         'fl_admin' => 'boolean',
+        'fl_login' => 'boolean',        
     ];
 
     /**

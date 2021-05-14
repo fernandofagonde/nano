@@ -26,7 +26,7 @@ class PessoasRequest extends FormRequest
         $rules = [
             'nome' => 'required',
             'email' => 'nullable|email',
-            'login' => 'required|alpha_dash|max:15|unique:pessoa',
+            'login' => 'required|alpha_dash|max:15|unique:pessoas',
             'senha' => 'required|min:6|confirmed',
             'fl_ativo' => 'required|boolean',
             'fl_admin' => 'required|boolean',
@@ -34,7 +34,7 @@ class PessoasRequest extends FormRequest
         ];
 
         if ($this->method() == 'PUT') {
-            $rules['login'] = 'required|alpha_dash|max:15|unique:pessoa,login,' . $this->route('id');
+            $rules['login'] = 'required|alpha_dash|max:15|unique:pessoas,login,' . $this->route('id');
             $rules['senha'] = 'nullable|min:6|required_with:senha_confirmation|confirmed';
         }
 
