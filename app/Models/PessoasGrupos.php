@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Participantes extends Model
+
+class PessoasGrupos extends Model
 {
     public $timestamps = false;
 
@@ -15,7 +16,11 @@ class Participantes extends Model
         'ref_pessoa',
         'ref_papel',
         'ref_situacao'
-
     ];
+
+    public function getParticipantes($grupo){
+        return $this->ref_grupo;
+    }
+    
 
 }

@@ -7,17 +7,17 @@
         @slot('title', 'Participantes')
 
         @component('components.create-btn')
-            @slot('route', 'participantes.create')
-            @slot('title', 'Criar participante')
+            @slot('route', 'grupos.adicionarParticipantes')
+            @slot('title', 'Adicionar Participante')
         @endcomponent
     @endcomponent
 
     <!-- Filters -->
     @component('components.filters')
-        @slot('route', 'participantes.index')
+        @slot('route', 'grupos.participantes')
 
         @component('components.filter-input')
-            @slot('label', 'Nome')
+            @slot('label', 'Buscar participante')
             @slot('name', 'nome')
             @slot('value', $filters['nome'])
         @endcomponent
@@ -30,36 +30,30 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
-                <th>Dia da Semana</th>
-                <th>Hora de início</th>
-                <th>Hora de fim</th>
+                <th>Papel</th>                
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            @forelse($participantes as $participante)
+            @forelse($grupos as $grupo)
                 <tr>
-                    <td>{{ $participante->id }}</td>
-                    <td>{{ $participante->nome }}</td>
-                    <td>{{ $participante->descricao }}</td>
-                    <td>{{ dia_da_semana($participante->dia_semana) }}</td>
-                    <td>{{ $participante->hora_inicio }}</td>
-                    <td>{{ $participante->hora_fim }}</td>
+                    <td>{{ $grupo->id }}</td>
+                    <td>{{ $grupo->nome }}</td>
+                    <td>{{ $grupo->descricao }}</td>
                     <td class="cell-nowrap">
                         @component('components.people-btn')
-                            @slot('route', 'participantes.index')
-                            @slot('route_params', ['id' => $participante->id])
+                        @slot('route', 'grupos.participantes')
+                        @slot('route_params', ['id' => $grupo->id])
                         @endcomponent
 
                         @component('components.edit-btn')
-                            @slot('route', 'participantes.edit')
-                            @slot('route_params', ['id' => $participante->id])
+                            @slot('route', 'grupos.edit')
+                            @slot('route_params', ['id' => $grupo->id])
                         @endcomponent                        
 
                         @component('components.destroy-btn')
-                            @slot('route', 'participantes.destroy')
-                            @slot('route_params', ['id' => $participante->id])
+                            @slot('route', 'grupos.destroy')
+                            @slot('route_params', ['id' => $grupo->id])
                         @endcomponent
                     </td>
                 </tr>
@@ -73,6 +67,6 @@
             </tbody>
         </table>
 
-        @slot('pagination', $participantes->appends($filters)->links())
+        @slot('pagination', $grupos->appends($filters)->links())
     @endcomponent
 @endsection

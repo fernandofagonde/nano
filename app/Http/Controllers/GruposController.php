@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GruposRequest;
 use App\Models\Grupos;
+use App\Models\PessoasGrupos;
 
 class GruposController extends Controller
 {
@@ -11,6 +12,7 @@ class GruposController extends Controller
      * @var Grupos
      */
     private $grupos;
+    private $pessoasGrupos;
 
     public function __construct(Grupos $grupos)
     {
@@ -89,5 +91,23 @@ class GruposController extends Controller
             'success' => true,
             'redirect_to' => route('grupos.index')
         ]);
+    }
+
+    public function participantes($id)
+    {
+        $grupo = $this->grupos->findOrFail($id);
+        $is_edit = false;
+        
+
+        return view('grupos.participantes', compact('grupo', 'is_edit'));
+    }
+
+    public function adicionarParticipantes($id)
+    {
+        $pessoasGrupos = $this->pessoasGrupos->find($id);
+        $is_edit = false;
+        
+
+        return view('grupos.adicionarParticipantes', compact('pessoasGrupos', 'is_edit'));
     }
 }

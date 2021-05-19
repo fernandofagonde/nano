@@ -4,20 +4,20 @@
 
 @section('content')
     @component('components.page-header')
-        @slot('title', 'Grupos')
+        @slot('title', 'Participantes')
 
         @component('components.create-btn')
-            @slot('route', 'grupos.create')
-            @slot('title', 'Criar grupo')
+            @slot('route', 'grupos.adicionarParticipantes')
+            @slot('title', 'Adicionar Participante')
         @endcomponent
     @endcomponent
 
     <!-- Filters -->
     @component('components.filters')
-        @slot('route', 'grupos.index')
+        
 
         @component('components.filter-input')
-            @slot('label', 'Nome')
+            @slot('label', 'Buscar participante')
             @slot('name', 'nome')
             @slot('value', $filters['nome'])
         @endcomponent
@@ -30,10 +30,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
-                <th>Dia da Semana</th>
-                <th>Hora de início</th>
-                <th>Hora de fim</th>
+                <th>Papel</th>                
                 <th></th>
             </tr>
             </thead>
@@ -43,13 +40,10 @@
                     <td>{{ $grupo->id }}</td>
                     <td>{{ $grupo->nome }}</td>
                     <td>{{ $grupo->descricao }}</td>
-                    <td>{{ dia_da_semana($grupo->dia_semana) }}</td>
-                    <td>{{ $grupo->hora_inicio }}</td>
-                    <td>{{ $grupo->hora_fim }}</td>
                     <td class="cell-nowrap">
                         @component('components.people-btn')
-                            @slot('route', 'grupos.participantes')
-                            @slot('route_params', ['id' => $grupo->id])
+                        @slot('route', 'grupos.participantes')
+                        @slot('route_params', ['id' => $grupo->id])
                         @endcomponent
 
                         @component('components.edit-btn')
@@ -73,6 +67,6 @@
             </tbody>
         </table>
 
-        
+        @slot('pagination', $grupos->appends($filters)->links())
     @endcomponent
 @endsection
