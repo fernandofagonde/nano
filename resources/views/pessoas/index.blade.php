@@ -41,8 +41,7 @@
                 <th>Telefone</th>
                 <th>Login</th>
                 <th>Ativo</th>
-                <th>Admin</th>
-                <th>Login</th>
+                <th>Admin</th>                
                 <th>Criado em</th>
                 <th></th>
             </tr>
@@ -56,8 +55,7 @@
                     <td>{{ $pessoa->telefone_formatado }}</td>
                     <td>{{ $pessoa->login }}</td>
                     <td>{{ $pessoa->fl_ativo_formatado }}</td>
-                    <td>{{ $pessoa->fl_admin_formatado }}</td>
-                    <td>{{ $pessoa->fl_login_formatado }}</td>
+                    <td>{{ $pessoa->fl_admin_formatado }}</td>                    
                     <td>{{ $pessoa->dt_criacao_formatado }}</td>
                     <td class="cell-nowrap">
                         @component('components.edit-btn')

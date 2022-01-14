@@ -36,7 +36,7 @@ class PessoasController extends Controller
         }
 
         if ($filters['ativo'] != 'T') {
-            $query->where('fl_ativo', $filters['ativo'] == 'S' ? 't' : 'f');
+            $query->where('ativo', $filters['ativo'] == 'S' ? 't' : 'f');
         }
 
         $query->orderBy('id', 'desc');

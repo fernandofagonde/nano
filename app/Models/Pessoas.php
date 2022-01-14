@@ -8,10 +8,7 @@ use Illuminate\Notifications\Notifiable;
 class Pessoas extends Authenticatable
 {
     use Notifiable;
-
-    const CREATED_AT = 'dt_criacao';
-    const UPDATED_AT = 'dt_modificacao';
-
+    
     protected $table = 'pessoas';
 
     protected $fillable = [
@@ -20,9 +17,8 @@ class Pessoas extends Authenticatable
         'telefone',
         'login',
         'senha',
-        'fl_ativo',
-        'fl_admin',
-        'fl_login',
+        'ativo',
+        'administrador'
     ];
 
     protected $hidden = [
@@ -30,9 +26,9 @@ class Pessoas extends Authenticatable
     ];
 
     protected $casts = [
-        'fl_ativo' => 'boolean',
-        'fl_admin' => 'boolean',
-        'fl_login' => 'boolean',        
+        'ativo' => 'boolean',
+        'administrador' => 'boolean',
+        
     ];
 
     /**
@@ -72,22 +68,17 @@ class Pessoas extends Authenticatable
 
     public function getFlAtivoFormatadoAttribute()
     {
-        return $this->attributes['fl_ativo'] ? 'Sim' : 'Não';
+        return $this->attributes['ativo'] ? 'Sim' : 'Não';
     }
 
     public function getFlAdminFormatadoAttribute()
     {
-        return $this->attributes['fl_admin'] ? 'Sim' : 'Não';
+        return $this->attributes['administrador'] ? 'Sim' : 'Não';
     }
-
-    public function getFlLoginFormatadoAttribute()
-    {
-        return $this->attributes['fl_login'] ? 'Sim' : 'Não';
-    }
-
+    
     public function getDtCriacaoFormatadoAttribute()
     {
-        return timestamp_bra($this->attributes['dt_criacao']);
+        return timestamp_bra($this->attributes['created_at']);
     }
 
     public function getTelefoneFormatadoAttribute()

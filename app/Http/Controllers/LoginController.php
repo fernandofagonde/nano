@@ -58,7 +58,7 @@ class LoginController extends Controller
         return [
             'login' => $request->get('login'),
             'password' => $request->get('password'),
-            'fl_ativo' => true,
+            'ativo' => true,
         ];
     }
 

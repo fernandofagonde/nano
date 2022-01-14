@@ -28,9 +28,8 @@ class PessoasRequest extends FormRequest
             'email' => 'nullable|email',
             'login' => 'required|alpha_dash|max:15|unique:pessoas',
             'senha' => 'required|min:6|confirmed',
-            'fl_ativo' => 'required|boolean',
-            'fl_admin' => 'required|boolean',
-            'fl_login' => 'required|boolean',
+            'ativo' => 'required|boolean',
+            'administrador' => 'required|boolean',            
         ];
 
         if ($this->method() == 'PUT') {

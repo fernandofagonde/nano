@@ -52,27 +52,19 @@
             @component('components.form-select')
                 @slot('column_size', 'col-md-2')
                 @slot('label', 'Ativo')
-                @slot('name', 'fl_ativo')
+                @slot('name', 'ativo')
                 @slot('items', ['' => 'Selecione um item', '1' => 'Sim', '0' => 'Não'])
-                @slot('selected_item', !is_null($pessoa->fl_ativo) ? (int)$pessoa->fl_ativo : '')
+                @slot('selected_item', !is_null($pessoa->ativo) ? (int)$pessoa->ativo : '')
                 @slot('required', true)
             @endcomponent
             @component('components.form-select')
                 @slot('column_size', 'col-md-2')
                 @slot('label', 'Admin')
-                @slot('name', 'fl_admin')
+                @slot('name', 'administrador')
                 @slot('items', ['' => 'Selecione um item', '1' => 'Sim', '0' => 'Não'])
-                @slot('selected_item', !is_null($pessoa->fl_admin) ? (int)$pessoa->fl_admin : '')
+                @slot('selected_item', !is_null($pessoa->administrador) ? (int)$pessoa->administrador : '')
                 @slot('required', true)
-            @endcomponent
-            @component('components.form-select')
-                @slot('column_size', 'col-md-2')
-                @slot('label', 'Login')
-                @slot('name', 'fl_login')
-                @slot('items', ['' => 'Selecione um item', '1' => 'Sim', '0' => 'Não'])
-                @slot('selected_item', !is_null($pessoa->fl_login) ? (int)$pessoa->fl_login : '')
-                @slot('required', true)
-            @endcomponent
+            @endcomponent            
         </div>
     </div>
 </div>
