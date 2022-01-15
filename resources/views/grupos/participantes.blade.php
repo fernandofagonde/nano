@@ -4,12 +4,7 @@
 
 @section('content')
     @component('components.page-header')
-        @slot('title', 'Participantes')
-
-        @component('components.create-btn')
-            @slot('route', 'grupos/2/adicionarParticipantes/')
-            @slot('title', 'Adicionar Participante')
-        @endcomponent
+        @slot('title', 'Participantes')        
     @endcomponent
 
     <!-- Filters -->
@@ -19,7 +14,7 @@
         @component('components.filter-input')
             @slot('label', 'Buscar participante')
             @slot('name', 'nome')
-            @slot('value', $filters['nome'])
+            @slot('value', $filters ?? ''['nome'])
         @endcomponent
     @endcomponent
     <!-- / Filters -->
@@ -35,6 +30,9 @@
             </tr>
             </thead>
             <tbody>
+                <?php
+                    dd($grupos);
+                ?>
             @forelse($grupos as $grupo)
                 <tr>
                     <td>{{ $grupo->id }}</td>
@@ -67,6 +65,6 @@
             </tbody>
         </table>
 
-        @slot('pagination', $grupos->appends($filters)->links())
+        @slot('pagination', $grupos->appends($filters ?? '')->links())
     @endcomponent
 @endsection

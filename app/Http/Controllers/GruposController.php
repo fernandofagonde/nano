@@ -96,10 +96,11 @@ class GruposController extends Controller
     public function participantes($id)
     {
         $grupo = $this->grupos->findOrFail($id);
+        
         $is_edit = false;
         
 
-        return view('grupos.participantes', compact('grupo', 'is_edit'));
+        return view('grupos.participantes', $grupo);
     }
 
     public function adicionarParticipantes($id)
