@@ -18,6 +18,7 @@ class PessoasTableSeeder extends Seeder
             'nome' => 'Fernando Fagonde',
             'email' => 'fernando@alvoradadapaz.org.br',
             'login' => 'fernando',
+            'telefone'=>'53999028504',
             'senha' => '123456',
             'ativo' => true,
             'administrador' => true, 
@@ -26,6 +27,7 @@ class PessoasTableSeeder extends Seeder
             'nome' => 'Eliane Fagonde',
             'email' => 'eliane@alvoradadapaz.org.br',
             'login' => 'eliane',
+            'telefone'=>'53991416522',
             'senha' => '123456',
             'ativo' => true,
             'administrador' => true, 
@@ -34,6 +36,7 @@ class PessoasTableSeeder extends Seeder
         Pessoas::create([
             'nome' => 'Flávio Bitencourt',
             'email' => 'flavio@alvoradadapaz.org.br',
+            'telefone'=>'53999991448',
             'login' => 'flavio',
             'senha' => '123456',
             'ativo' => true,

@@ -19,4 +19,8 @@ class Grupos extends Model
 
     ];
 
+    public function grupos_pessoas(){
+        return $this->belongsToMany('App\Models\GruposPessoas');
+    }
+
 }

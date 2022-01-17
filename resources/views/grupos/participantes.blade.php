@@ -1,20 +1,32 @@
 @extends('layouts.layout-1')
 
-@section('title', 'Participantes')
+@section('title', "Participantes do grupo {{ $grupo->descricao }}")
 
 @section('content')
     @component('components.page-header')
-        @slot('title', 'Participantes')        
+        @slot('title', 'Pessoas')
+
+        @component('components.create-btn')
+            @slot('route', 'pessoas.create')
+            @slot('title', 'Criar pessoa')
+        @endcomponent
     @endcomponent
 
     <!-- Filters -->
     @component('components.filters')
-        
+        @slot('route', 'pessoas.index')
 
         @component('components.filter-input')
-            @slot('label', 'Buscar participante')
+            @slot('label', 'Nome/Login')
             @slot('name', 'nome')
-            @slot('value', $filters ?? ''['nome'])
+            @slot('value', $filters['nome'])
+        @endcomponent
+
+        @component('components.filter-select')
+            @slot('label', 'Ativo')
+            @slot('name', 'ativo')
+            @slot('items', ['T' => 'Todos', 'S' => 'Sim', 'N' => 'Não'])
+            @slot('selected_item', $filters['ativo'])
         @endcomponent
     @endcomponent
     <!-- / Filters -->
@@ -25,39 +37,36 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Papel</th>                
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Login</th>
+                <th>Ativo</th>
+                <th>Admin</th>                
+                <th>Criado em</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-                <?php
-                    dd($grupos);
-                ?>
-            @forelse($grupos as $grupo)
+            @forelse($pessoas as $pessoa)
                 <tr>
-                    <td>{{ $grupo->id }}</td>
-                    <td>{{ $grupo->nome }}</td>
-                    <td>{{ $grupo->descricao }}</td>
-                    <td class="cell-nowrap">
-                        @component('components.people-btn')
-                        @slot('route', 'grupos.participantes')
-                        @slot('route_params', ['id' => $grupo->id])
-                        @endcomponent
-
-                        @component('components.edit-btn')
-                            @slot('route', 'grupos.edit')
-                            @slot('route_params', ['id' => $grupo->id])
-                        @endcomponent                        
-
+                    <td>{{ $pessoa->id }}</td>
+                    <td>{{ $pessoa->nome }}</td>
+                    <td>{{ $pessoa->email }}</td>
+                    <td>{{ $pessoa->telefone_formatado }}</td>
+                    <td>{{ $pessoa->login }}</td>
+                    <td>{{ $pessoa->fl_ativo_formatado }}</td>
+                    <td>{{ $pessoa->fl_admin_formatado }}</td>                    
+                    <td>{{ $pessoa->dt_criacao_formatado }}</td>
+                    <td class="cell-nowrap">                        
                         @component('components.destroy-btn')
-                            @slot('route', 'grupos.destroy')
-                            @slot('route_params', ['id' => $grupo->id])
+                            @slot('route', 'pessoas.destroy')
+                            @slot('route_params', ['id' => $pessoa->id])
                         @endcomponent
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="3" class="text-center">
+                    <td colspan="8" class="text-center">
                         {{ config('app.messages.grid.no_rows') }}
                     </td>
                 </tr>
@@ -65,6 +74,6 @@
             </tbody>
         </table>
 
-        @slot('pagination', $grupos->appends($filters ?? '')->links())
+        @slot('pagination', $pessoas->appends($filters)->links())
     @endcomponent
 @endsection

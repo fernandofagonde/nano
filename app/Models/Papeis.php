@@ -14,4 +14,9 @@ class Papeis extends Model
         'nome',
         'descricao',
     ];
+    
+    public function grupos_pessoas(){
+        return $this->belongsToMany('App\Models\GruposPessoas');
+    }
+
 }

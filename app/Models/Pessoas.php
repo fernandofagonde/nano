@@ -85,4 +85,9 @@ class Pessoas extends Authenticatable
     {
         return formata_telefone($this->attributes['telefone']);
     }
+
+    public function grupos_pessoas(){
+        return $this->belongsToMany('App\Models\GruposPessoas');
+    }
+
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePessoasTable extends Migration
+class CreatePapeisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreatePessoasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pessoas', function (Blueprint $table) {
+        Schema::create('papeis', function (Blueprint $table) {
             $table->id();
-            $table->text('nome');
-            $table->text('email');
-            $table->text('telefone')->nullable();
-            $table->text('login');
-            $table->text('senha');
-            $table->boolean('ativo');
-            $table->boolean('administrador');
+            $table->text('nome');            
+            $table->text('descricao');            
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreatePessoasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pessoas');
+        Schema::dropIfExists('papeis');
     }
 }

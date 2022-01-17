@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GruposRequest;
 use App\Models\Grupos;
-use App\Models\PessoasGrupos;
+use App\Models\Pessoas;
+use App\Models\GruposPessoas;
 
 class GruposController extends Controller
 {
@@ -12,11 +13,12 @@ class GruposController extends Controller
      * @var Grupos
      */
     private $grupos;
-    private $pessoasGrupos;
+    private $pessoas;
+    private $gruposPessoas;
 
     public function __construct(Grupos $grupos)
     {
-        $this->grupos = $grupos;
+        $this->grupos = $grupos;        
     }
 
     public function index()
@@ -95,20 +97,40 @@ class GruposController extends Controller
 
     public function participantes($id)
     {
-        $grupo = $this->grupos->findOrFail($id);
         
-        $is_edit = false;
-        
+        $rows_per_page = config('app.pagination.rows_per_page');
 
-        return view('grupos.participantes', $grupo);
+        $filters = [
+            'nome' => request('nome', ''),
+            'ativo' => request('ativo', 'T'),
+        ];
+
+        $query = $this->pessoas->newQuery();
+
+        if ($filters['nome']) {
+            $query->where(function ($subquery) use ($filters) {
+                $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');
+                $subquery->orWhere('login', 'like', '%' . $filters['nome'] . '%');
+            });
+        }
+
+        if ($filters['ativo'] != 'T') {
+            $query->where('ativo', $filters['ativo'] == 'S' ? 't' : 'f');
+        }
+
+        $query->orderBy('id', 'desc');
+
+        $pessoas = $query->paginate($rows_per_page);
+
+        return view('grupos.participantes', compact('pessoas', 'filters'));
     }
 
     public function adicionarParticipantes($id)
     {
-        $pessoasGrupos = $this->pessoasGrupos->find($id);
+        $gruposPessoas = $this->gruposPessoas->find($id);
         $is_edit = false;
         
 
-        return view('grupos.adicionarParticipantes', compact('pessoasGrupos', 'is_edit'));
+        return view('grupos.adicionarParticipantes', compact('gruposPessoas', 'is_edit'));
     }
 }

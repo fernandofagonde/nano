@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePapeisTable extends Migration
+class CreateGruposTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreatePapeisTable extends Migration
      */
     public function up()
     {
-        Schema::create('papeis', function (Blueprint $table) {
+        Schema::create('grupos', function (Blueprint $table) {
             $table->id();
-            $table->text('nome');            
+            $table->text('nome');
             $table->text('descricao');            
+            $table->text('dia_semana');
+            $table->time('hora_inicio');
+            $table->time('hora_fim');
+
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreatePapeisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('papeis');
+        Schema::dropIfExists('grupos');
     }
 }
