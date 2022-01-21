@@ -1,6 +1,6 @@
 @extends('layouts.layout-1')
 
-@section('title', "Participantes do grupo {{ $grupo->descricao }}")
+@section('title', "Participantes do grupo")
 
 @section('content')
     @component('components.page-header')
@@ -38,11 +38,7 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>E-mail</th>
-                <th>Telefone</th>
-                <th>Login</th>
-                <th>Ativo</th>
-                <th>Admin</th>                
-                <th>Criado em</th>
+                <th>Telefone</th>                
                 <th></th>
             </tr>
             </thead>
@@ -53,10 +49,7 @@
                     <td>{{ $pessoa->nome }}</td>
                     <td>{{ $pessoa->email }}</td>
                     <td>{{ $pessoa->telefone_formatado }}</td>
-                    <td>{{ $pessoa->login }}</td>
-                    <td>{{ $pessoa->fl_ativo_formatado }}</td>
-                    <td>{{ $pessoa->fl_admin_formatado }}</td>                    
-                    <td>{{ $pessoa->dt_criacao_formatado }}</td>
+                    
                     <td class="cell-nowrap">                        
                         @component('components.destroy-btn')
                             @slot('route', 'pessoas.destroy')

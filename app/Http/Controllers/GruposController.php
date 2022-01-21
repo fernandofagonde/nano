@@ -16,9 +16,10 @@ class GruposController extends Controller
     private $pessoas;
     private $gruposPessoas;
 
-    public function __construct(Grupos $grupos)
+    public function __construct(Grupos $grupos, Pessoas $pessoas)
     {
-        $this->grupos = $grupos;        
+        $this->grupos = $grupos;   
+        $this->pessoas = $pessoas;     
     }
 
     public function index()
@@ -95,7 +96,7 @@ class GruposController extends Controller
         ]);
     }
 
-    public function participantes($id)
+    public function participantes($id_grupo)
     {
         
         $rows_per_page = config('app.pagination.rows_per_page');
@@ -109,8 +110,7 @@ class GruposController extends Controller
 
         if ($filters['nome']) {
             $query->where(function ($subquery) use ($filters) {
-                $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');
-                $subquery->orWhere('login', 'like', '%' . $filters['nome'] . '%');
+                $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');                
             });
         }
 
