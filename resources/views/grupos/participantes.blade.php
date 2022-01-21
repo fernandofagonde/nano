@@ -7,8 +7,8 @@
         @slot('title', 'Pessoas')
 
         @component('components.create-btn')
-            @slot('route', 'pessoas.create')
-            @slot('title', 'Criar pessoa')
+            @slot('route', 'grupos.adicionarParticipantes')
+            @slot('title', 'Adicionar Pessoa ao grupo')
         @endcomponent
     @endcomponent
 

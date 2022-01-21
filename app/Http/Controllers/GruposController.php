@@ -107,7 +107,7 @@ class GruposController extends Controller
         ];
 
         $query = $this->pessoas->newQuery();
-
+        
         if ($filters['nome']) {
             $query->where(function ($subquery) use ($filters) {
                 $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');                
