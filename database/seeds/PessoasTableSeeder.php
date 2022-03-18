@@ -42,22 +42,33 @@ class PessoasTableSeeder extends Seeder
             'ativo' => true,
             'administrador' => true, 
         ]);
-        Grupos::create([
-            'nome'=>'Grupo Scheilla',
-            'descricao'=>'Grupo de estudos da Doutrina Espírita Avançado',
-            'dia_semana'=>6,
-            'hora_inicio'=>'15:30',
-            'hora_fim'=>'16:45',
-        ]);
 
-        Grupos::create([
-            'nome'=>'Grupo de Estudo de O Livro dos Espíritos',
-            'descricao'=>'Grupo de estudos de O Livro dos Espíritos. Obrigatório estar em outro grupo de ESDE',
-            'dia_semana'=>6,
-            'hora_inicio'=>'14:00',
-            'hora_fim'=>'15:00 ',
-        ]);
+        /**
+         * Grupos
+         */
+        
+        //Segunda
+        Grupos::create(['nome'=>'Grupo Maria de Magdala','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>1,'hora_inicio'=>'20:00','hora_fim'=>'21:00 ',]);
+        Grupos::create(['nome'=>'Grupo Luiz Sérgio','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>1,'hora_inicio'=>'20:00','hora_fim'=>'21:00 ',]);        
+        //Terça
+        Grupos::create(['nome'=>'Grupo Peixotinho','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>2,'hora_inicio'=>'20:00','hora_fim'=>'21:00 ',]);
+        //Quarta
+        Grupos::create(['nome'=>'Grupo André Luiz','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>3,'hora_inicio'=>'18:00','hora_fim'=>'19:00 ',]);
+        //Quinta
+        Grupos::create(['nome'=>'Grupo João Batista','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>4,'hora_inicio'=>'20:00','hora_fim'=>'21:00 ',]);
+        Grupos::create(['nome'=>'Grupo Amelia Rodrigues','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>4,'hora_inicio'=>'20:00','hora_fim'=>'21:00 ',]);                
+        //sábado
+        Grupos::create(['nome'=>'Grupo Scheilla','descricao'=>'Grupo de estudos da Doutrina Espírita Avançado','dia_semana'=>6,'hora_inicio'=>'15:30','hora_fim'=>'16:45',]);
+        Grupos::create(['nome'=>'Grupo de Estudo de O Livro dos Espíritos','descricao'=>'Grupo de estudos de O Livro dos Espíritos. Obrigatório estar em outro grupo de ESDE','dia_semana'=>6,'hora_inicio'=>'14:00','hora_fim'=>'15:00 ',]);
+        Grupos::create(['nome'=>'Grupo Chico Xavier','descricao'=>'Grupo de Estudos da Doutrina Espírita - ESDE','dia_semana'=>6,'hora_inicio'=>'14:15','hora_fim'=>'15:15 ',]);        
+        Grupos::create(['nome'=>'Grupo Joanna de Angelis ','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>6,'hora_inicio'=>'14:00','hora_fim'=>'15:00 ',]);        
+        Grupos::create(['nome'=>'Grupo Estudo da Mediunidade','descricao'=>'Grupo de Estudos da Doutrina Espírita','dia_semana'=>6,'hora_inicio'=>'14:00','hora_fim'=>'15:00 ',]);        
+        
 
+        /**
+         * Pessoas
+         */
+         
         Papeis::create([
             'nome'=>'Facilitador',
             'descricao'=>'Facilitador de Grupo de estudos'
