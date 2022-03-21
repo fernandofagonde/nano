@@ -1,4 +1,4 @@
-<form action="{{ route($route) }}" method="get" class="form-filters">
+<form action="{{ route($route, $route_params??[]) }}" method="get" class="form-filters">
     <div class="ui-bordered px-4 pt-4 mb-0">
         <div class="form-row align-items-center">
             {{ $slot }}
@@ -12,7 +12,7 @@
 
                     <div class="w-50" style="padding-left: 5px">
                         <label class="form-label d-none d-lg-block">&nbsp;</label>
-                        <a href="{{ route($route) }}" class="btn btn-secondary btn-block">Limpar</a>
+                        <a href="{{ route($route, $route_params??[]) }}" class="btn btn-secondary btn-block">Limpar</a>
                     </div>
                 </div>
             </div>

@@ -7,14 +7,17 @@
         @slot('title', 'Pessoas')
 
         @component('components.create-btn')
-            @slot('route', 'grupos.adicionarParticipantes')
-            @slot('title', 'Adicionar Pessoa ao grupo')
+            
+            @slot('title', 'Pessoas')
+            @slot('route', 'grupos.participantes')
+            @slot('route_params', ['id' => $grupo->id])
         @endcomponent
     @endcomponent
 
     <!-- Filters -->
     @component('components.filters')
-        @slot('route', 'pessoas.index')
+        @slot('route', 'grupos.participantes')
+        @slot('route_params', ['id' => $grupo->id])
 
         @component('components.filter-input')
             @slot('label', 'Nome/Login')
@@ -22,12 +25,6 @@
             @slot('value', $filters['nome'])
         @endcomponent
 
-        @component('components.filter-select')
-            @slot('label', 'Ativo')
-            @slot('name', 'ativo')
-            @slot('items', ['T' => 'Todos', 'S' => 'Sim', 'N' => 'Não'])
-            @slot('selected_item', $filters['ativo'])
-        @endcomponent
     @endcomponent
     <!-- / Filters -->
 
@@ -65,8 +62,8 @@
                 </tr>
             @endforelse
             </tbody>
-        </table>
-
+        </table>            
+        
         @slot('pagination', $pessoas->appends($filters)->links())
     @endcomponent
 @endsection

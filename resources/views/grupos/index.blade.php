@@ -1,6 +1,6 @@
 @extends('layouts.layout-1')
 
-@section('title', 'Participantes')
+@section('title', 'Grupos')
 
 @section('content')
     @component('components.page-header')

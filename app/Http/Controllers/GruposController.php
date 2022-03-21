@@ -96,14 +96,13 @@ class GruposController extends Controller
         ]);
     }
 
-    public function participantes($id_grupo)
+    public function participantes($grupo_id)
     {
         
         $rows_per_page = config('app.pagination.rows_per_page');
 
         $filters = [
-            'nome' => request('nome', ''),
-            'ativo' => request('ativo', 'T'),
+            'nome' => request('nome', ''),            
         ];
 
         $query = $this->pessoas->newQuery();
@@ -114,15 +113,14 @@ class GruposController extends Controller
             });
         }
 
-        if ($filters['ativo'] != 'T') {
-            $query->where('ativo', $filters['ativo'] == 'S' ? 't' : 'f');
-        }
-
         $query->orderBy('id', 'desc');
 
         $pessoas = $query->paginate($rows_per_page);
-
-        return view('grupos.participantes', compact('pessoas', 'filters'));
+        
+        $grupo = $this->grupos->findOrFail($grupo_id);
+        $grupoPessoas = $grupo->papeis();        
+        
+        return view("grupos.participantes", compact('grupoPessoas','grupo', 'pessoas', 'filters'));
     }
 
     public function adicionarParticipantes($id)

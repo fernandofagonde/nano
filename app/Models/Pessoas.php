@@ -10,6 +10,8 @@ class Pessoas extends Authenticatable
     use Notifiable;
     
     protected $table = 'pessoas';
+    
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nome',
@@ -85,4 +87,15 @@ class Pessoas extends Authenticatable
     {
         return formata_telefone($this->attributes['telefone']);
     }
+
+    public function grupos()
+    {
+        return $this->belongsToMany('\App\Models\Grupos', 'grupos_papeis_pessoas');
+    }
+    
+    public function papeis()
+    {
+        return $this->belongsToMany('\App\Models\Papeis', 'grupos_papeis_pessoas');
+    }
+
 }
