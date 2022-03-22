@@ -98,6 +98,13 @@ class GruposController extends Controller
 
     public function participantes($grupo_id)
     {
+
+        $grupo = Grupos::find(8);
+        
+        foreach($grupo->papeis as $pessoa) {
+            dump($pessoa);
+            echo $pessoa->nome;
+        }
         
         $rows_per_page = config('app.pagination.rows_per_page');
 
@@ -116,18 +123,18 @@ class GruposController extends Controller
         $query->orderBy('id', 'desc');
 
         $pessoas = $query->paginate($rows_per_page);
+
+        dd($pessoas);
         
-        $grupo = $this->grupos->findOrFail($grupo_id);
-        $grupoPessoas = $grupo->papeis();        
+        $grupo = $this->grupos->with('pessoas')->find($grupo_id);        
         
-        return view("grupos.participantes", compact('grupoPessoas','grupo', 'pessoas', 'filters'));
+        return view("grupos.participantes", compact('grupo', 'pessoas', 'filters'));
     }
 
     public function adicionarParticipantes($id)
     {
         $gruposPessoas = $this->gruposPessoas->find($id);
-        $is_edit = false;
-        
+        $is_edit = false;        
 
         return view('grupos.adicionarParticipantes', compact('gruposPessoas', 'is_edit'));
     }
