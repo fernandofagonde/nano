@@ -99,13 +99,9 @@ class GruposController extends Controller
     public function participantes($grupo_id)
     {
 
-        $grupo = Grupos::find(8);
-        
-        foreach($grupo->papeis as $pessoa) {
-            dump($pessoa);
-            echo $pessoa->nome;
-        }
-        
+        /*Dados do grupo, participantes, papeis e etc*/
+        $grupo = Grupos::find($grupo_id);
+          
         $rows_per_page = config('app.pagination.rows_per_page');
 
         $filters = [
@@ -122,20 +118,34 @@ class GruposController extends Controller
 
         $query->orderBy('id', 'desc');
 
-        $pessoas = $query->paginate($rows_per_page);
-
-        dd($pessoas);
-        
-        $grupo = $this->grupos->with('pessoas')->find($grupo_id);        
+        $pessoas = $query->paginate($rows_per_page);        
         
         return view("grupos.participantes", compact('grupo', 'pessoas', 'filters'));
     }
 
-    public function adicionarParticipantes($id)
+    public function adicionarParticipantes($grupo_id)
     {
-        $gruposPessoas = $this->gruposPessoas->find($id);
-        $is_edit = false;        
+        /*Dados do grupo, participantes, papeis e etc*/
+        $grupo = Grupos::find($grupo_id);
+          
+        $rows_per_page = config('app.pagination.rows_per_page');
 
-        return view('grupos.adicionarParticipantes', compact('gruposPessoas', 'is_edit'));
+        $filters = [
+            'nome' => request('nome', ''),            
+        ];
+
+        $query = $this->pessoas->newQuery();
+        
+        if ($filters['nome']) {
+            $query->where(function ($subquery) use ($filters) {
+                $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');                
+            });
+        }
+
+        $query->orderBy('id', 'desc');
+
+        $pessoas = $query->paginate($rows_per_page);        
+                
+        return view('grupos.adicionarParticipantes', compact('grupo', 'pessoas', 'filters'));
     }
 }

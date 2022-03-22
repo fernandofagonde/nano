@@ -8,8 +8,8 @@
 
         @component('components.create-btn')
             
-            @slot('title', 'Pessoas')
-            @slot('route', 'grupos.participantes')
+            @slot('title', 'Participante')
+            @slot('route', 'grupos.adicionarParticipantes')
             @slot('route_params', ['id' => $grupo->id])
         @endcomponent
     @endcomponent
@@ -27,26 +27,22 @@
 
     @endcomponent
     <!-- / Filters -->
-
     @component('components.grid')
         <table class="table table-striped table-bordered table-hover card-table">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>E-mail</th>
-                <th>Telefone</th>                
+                <th>Papel</th>                
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            @forelse($pessoas as $pessoa)
+            @forelse($grupo->pessoas as $pessoa)
                 <tr>
                     <td>{{ $pessoa->id }}</td>
                     <td>{{ $pessoa->nome }}</td>
-                    <td>{{ $pessoa->email }}</td>
-                    <td>{{ $pessoa->telefone_formatado }}</td>
-                    
+                    <td>{{ $pessoa->papeis->first()->nome }}</td>
                     <td class="cell-nowrap">                        
                         @component('components.destroy-btn')
                             @slot('route', 'pessoas.destroy')

@@ -1,72 +1,68 @@
 @extends('layouts.layout-1')
 
-@section('title', 'Participantes')
+@section('title', "Participantes do grupo")
 
 @section('content')
     @component('components.page-header')
-        @slot('title', 'Participantes')
+        @slot('title', 'Pessoas')
 
         @component('components.create-btn')
+            
+            @slot('title', 'Pessoas')
             @slot('route', 'grupos.adicionarParticipantes')
-            @slot('title', 'Adicionar Participante')
+            @slot('route_params', ['id' => $grupo->id])
         @endcomponent
     @endcomponent
 
     <!-- Filters -->
     @component('components.filters')
         @slot('route', 'grupos.participantes')
+        @slot('route_params', ['id' => $grupo->id])
 
         @component('components.filter-input')
-            @slot('label', 'Buscar participante')
+            @slot('label', 'Nome/Login')
             @slot('name', 'nome')
             @slot('value', $filters['nome'])
         @endcomponent
+
     @endcomponent
     <!-- / Filters -->
-
+    
     @component('components.grid')
-        <table class="table table-striped table-bordered table-hover card-table">
-            <thead>
+    <table class="table table-striped table-bordered table-hover card-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>                        
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @forelse($pessoas as $pessoa)
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Papel</th>                
-                <th></th>
+                <td>{{ $pessoa->id }}</td>
+                <td>{{ $pessoa->nome }}</td>
+                <td>{{ $pessoa->email }}</td>
+                <td>{{ $pessoa->telefone_formatado }}</td>                                                    
+                <td class="cell-nowrap">
+                    @component('components.add-btn')
+                        @slot('route', 'pessoas.edit')
+                        @slot('route_params', ['id' => $pessoa->id])
+                    @endcomponent
+                </td>
             </tr>
-            </thead>
-            <tbody>
-            @forelse($grupos as $grupo)
-                <tr>
-                    <td>{{ $grupo->id }}</td>
-                    <td>{{ $grupo->nome }}</td>
-                    <td>{{ $grupo->descricao }}</td>
-                    <td class="cell-nowrap">
-                        @component('components.people-btn')
-                        @slot('route', 'grupos.participantes')
-                        @slot('route_params', ['id' => $grupo->id])
-                        @endcomponent
-
-                        @component('components.edit-btn')
-                            @slot('route', 'grupos.edit')
-                            @slot('route_params', ['id' => $grupo->id])
-                        @endcomponent                        
-
-                        @component('components.destroy-btn')
-                            @slot('route', 'grupos.destroy')
-                            @slot('route_params', ['id' => $grupo->id])
-                        @endcomponent
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="3" class="text-center">
-                        {{ config('app.messages.grid.no_rows') }}
-                    </td>
-                </tr>
-            @endforelse
-            </tbody>
-        </table>
-
-        @slot('pagination', $grupos->appends($filters)->links())
+        @empty
+            <tr>
+                <td colspan="5" class="text-center">
+                    {{ config('app.messages.grid.no_rows') }}
+                </td>
+            </tr>
+        @endforelse
+        </tbody>
+    </table>      
+        
+        @slot('pagination', $pessoas->appends($filters)->links())
     @endcomponent
 @endsection
