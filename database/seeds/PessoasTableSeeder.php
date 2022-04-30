@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Pessoas;
+use App\Models\Usuarios;
 use App\Models\Grupos;
 use App\Models\Papeis;
 use Illuminate\Database\Seeder;
 
-class PessoasTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class PessoasTableSeeder extends Seeder
      */
     public function run()
     {
-        Pessoas::create([
+        Usuarios::create([
             'nome' => 'Fernando Fagonde',
             'email' => 'fernando@alvoradadapaz.org.br',
             'login' => 'fernando',
@@ -23,7 +23,7 @@ class PessoasTableSeeder extends Seeder
             'ativo' => true,
             'administrador' => true, 
         ]);
-        Pessoas::create([
+        Usuarios::create([
             'nome' => 'Eliane Fagonde',
             'email' => 'eliane@alvoradadapaz.org.br',
             'login' => 'eliane',
@@ -33,7 +33,7 @@ class PessoasTableSeeder extends Seeder
             'administrador' => true, 
         ]);
 
-        Pessoas::create([
+        Usuarios::create([
             'nome' => 'Flávio Bitencourt',
             'email' => 'flavio@alvoradadapaz.org.br',
             'telefone'=>'53999991448',
