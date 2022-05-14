@@ -5,7 +5,7 @@ use App\Models\Grupos;
 use App\Models\Papeis;
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class PessoasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

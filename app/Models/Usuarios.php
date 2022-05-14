@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 class Usuarios extends Authenticatable
 {
     use Notifiable;
-Usuarios
+
     protected $table = 'usuarios';
     
     protected $primaryKey = 'id';
