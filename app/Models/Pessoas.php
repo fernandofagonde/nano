@@ -17,20 +17,7 @@ class Pessoas extends Authenticatable
         'nome',
         'email',
         'telefone',
-        'login',
-        'senha',
-        'ativo',
-        'administrador'
-    ];
-
-    protected $hidden = [
-        'senha',
-    ];
-
-    protected $casts = [
-        'ativo' => 'boolean',
-        'administrador' => 'boolean',
-        
+        'endereco'
     ];
 
     /**
@@ -58,25 +45,11 @@ class Pessoas extends Authenticatable
         }
     }
 
-    public function setSenhaAttribute($value)
-    {
-        $this->attributes['senha'] = bcrypt($value);
-    }
-
     public function setTelefoneAttribute($value)
     {
         $this->attributes['telefone'] = so_numero($value);
     }
 
-    public function getFlAtivoFormatadoAttribute()
-    {
-        return $this->attributes['ativo'] ? 'Sim' : 'Não';
-    }
-
-    public function getFlAdminFormatadoAttribute()
-    {
-        return $this->attributes['administrador'] ? 'Sim' : 'Não';
-    }
     
     public function getDtCriacaoFormatadoAttribute()
     {

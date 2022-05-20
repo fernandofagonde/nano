@@ -25,17 +25,10 @@ class PessoasRequest extends FormRequest
     {
         $rules = [
             'nome' => 'required',
-            'email' => 'nullable|email',
-            'login' => 'required|alpha_dash|max:15|unique:pessoas',
-            'senha' => 'required|min:6|confirmed',
-            'ativo' => 'required|boolean',
-            'administrador' => 'required|boolean',            
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'email' => 'nullable|email'            
         ];
-
-        if ($this->method() == 'PUT') {
-            $rules['login'] = 'required|alpha_dash|max:15|unique:pessoas,login,' . $this->route('id');
-            $rules['senha'] = 'nullable|min:6|required_with:senha_confirmation|confirmed';
-        }
 
         return $rules;
     }

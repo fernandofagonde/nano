@@ -18,11 +18,8 @@ class CreatePessoasTable extends Migration
             $table->text('nome');
             $table->text('email');
             $table->text('telefone')->nullable();
-            $table->text('login');
-            $table->text('senha');
-            $table->boolean('ativo');
-            $table->boolean('administrador');
-            $table->timestamps();
+	    $table->text('endereco');
+	    $table->timestamps();
         });
     }
 

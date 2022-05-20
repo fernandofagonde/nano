@@ -39,9 +39,7 @@
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Telefone</th>
-                <th>Login</th>
-                <th>Ativo</th>
-                <th>Admin</th>                
+                <th>Endereço</th>             
                 <th>Criado em</th>
                 <th></th>
             </tr>
@@ -53,9 +51,7 @@
                     <td>{{ $pessoa->nome }}</td>
                     <td>{{ $pessoa->email }}</td>
                     <td>{{ $pessoa->telefone_formatado }}</td>
-                    <td>{{ $pessoa->login }}</td>
-                    <td>{{ $pessoa->fl_ativo_formatado }}</td>
-                    <td>{{ $pessoa->fl_admin_formatado }}</td>                    
+                    <td>{{ $pessoa->endereco }}</td>                    
                     <td>{{ $pessoa->dt_criacao_formatado }}</td>
                     <td class="cell-nowrap">
                         @component('components.edit-btn')
