@@ -24,5 +24,11 @@
             </a>
         </li>
 
+        <li class="sidenav-item{{ set_active_path('chamadas') }}">
+            <a href="{{ route('chamadas.index') }}" class="sidenav-link">
+                <i class="sidenav-icon ion ion-md-paper"></i>
+                <div>Chamadas</div>
+            </a>
+        </li>
     </ul>
 </div>

@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PapeisRequest;
-use App\Models\Papeis;
+use App\Http\Requests\GruposRequest;
 use App\Models\Grupos;
 use App\Models\Pessoas;
+use App\Models\GruposPessoas;
 
 class ChamadasController extends Controller
 {
     /**
-     * @var Papeis
+     * @var Grupos
      */
-    private $papeis;
+    private $grupos;
+    private $pessoas;
+    private $gruposPessoas;
 
-    public function __construct(Papeis $papeis)
+    public function __construct(Grupos $grupos, Pessoas $pessoas)
     {
-        $this->papeis = $papeis;
+        $this->grupos = $grupos;   
+        $this->pessoas = $pessoas;     
     }
 
     public function index()
@@ -27,7 +30,7 @@ class ChamadasController extends Controller
             'nome' => request('nome', ''),
         ];
 
-        $query = $this->papeis->newQuery();
+        $query = $this->grupos->newQuery();
 
         if ($filters['nome']) {
             $query->where('nome', 'like', '%' . $filters['nome'] . '%');
@@ -35,61 +38,114 @@ class ChamadasController extends Controller
 
         $query->orderBy('id', 'desc');
 
-        $papeis = $query->paginate($rows_per_page);
+        $grupos = $query->paginate($rows_per_page);
 
-        return view('papeis.index', compact('papeis', 'filters'));
+        return view('chamadas.index', compact('grupos', 'filters'));
     }
 
     public function create()
     {
-        $papel = new Papeis();
+        $grupo = new Grupos();
         $is_edit = false;
 
-        return view('papeis.create', compact('papel', 'is_edit'));
+        return view('grupos.create', compact('grupo', 'is_edit'));
     }
 
-    public function store(PapeisRequest $request)
+    public function store(GruposRequest $request)
     {
-        $papel = $this->papeis->fill($request->all());
-        $papel->save();
+        $grupo = $this->grupos->fill($request->all());
+        $grupo->save();
 
         session()->flash('notice', [
             'type' => 'success',
             'message' => config('app.messages.actions.insert'),
         ]);
 
-        return redirect()->route('papeis.index');
+        return redirect()->route('grupos.index');
     }
 
     public function edit($id)
     {
-        $papel = $this->papeis->findOrFail($id);
+        $grupo = $this->grupos->findOrFail($id);
         $is_edit = true;
 
-        return view('papeis.edit', compact('papel', 'is_edit'));
+        return view('grupos.edit', compact('grupo', 'is_edit'));
     }
 
-    public function update(PapeisRequest $request, $id)
+    public function update(GruposRequest $request, $id)
     {
-        $papel = $this->papeis->findOrFail($id);
-        $papel->update($request->all());
+        $grupo = $this->grupos->findOrFail($id);
+        $grupo->update($request->all());
 
         session()->flash('notice', [
             'type' => 'success',
             'message' => config('app.messages.actions.update'),
         ]);
 
-        return redirect()->route('papeis.index');
+        return redirect()->route('grupos.index');
     }
 
     public function destroy($id)
     {
-        $papel = $this->papeis->findOrFail($id);
-        $papel->delete();
+        $grupo = $this->grupos->findOrFail($id);
+        $grupo->delete();
 
         return response()->json([
             'success' => true,
-            'redirect_to' => route('papeis.index')
+            'redirect_to' => route('grupos.index')
         ]);
+    }
+
+    public function participantes($grupo_id)
+    {
+
+        /*Dados do grupo, participantes, papeis e etc*/
+        $grupo = Grupos::find($grupo_id);
+          
+        $rows_per_page = config('app.pagination.rows_per_page');
+
+        $filters = [
+            'nome' => request('nome', ''),            
+        ];
+
+        $query = $this->pessoas->newQuery();
+        
+        if ($filters['nome']) {
+            $query->where(function ($subquery) use ($filters) {
+                $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');                
+            });
+        }
+
+        $query->orderBy('id', 'desc');
+
+        $pessoas = $query->paginate($rows_per_page);        
+        
+        return view("grupos.participantes", compact('grupo', 'pessoas', 'filters'));
+    }
+
+    public function adicionarParticipantes($grupo_id)
+    {
+        /*Dados do grupo, participantes, papeis e etc*/
+        $grupo = Grupos::find($grupo_id);
+          
+        $rows_per_page = config('app.pagination.rows_per_page');
+
+        $filters = [
+            'nome' => request('nome', ''),            
+        ];
+
+        $query = $this->pessoas->newQuery();
+        
+        if ($filters['nome']) {
+            $query->where(function ($subquery) use ($filters) {
+                $subquery->where('nome', 'like', '%' . $filters['nome'] . '%');                
+            });
+        }
+
+        $query->orderBy('id', 'desc');
+
+        $pessoas = $query->paginate($rows_per_page);        
+                
+        return view('grupos.adicionarParticipantes', compact('grupo', 'pessoas', 'filters'));
     }
 }

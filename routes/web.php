@@ -35,6 +35,24 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/{id}', ['as' => 'destroy', 'uses' => $controller . '@destroy']);
     });
 
+
+        /*
+    |--------------------------------------------------------------------------
+    | Clientes
+    |--------------------------------------------------------------------------
+    */
+    $prefix = 'clientes';
+    $controller = 'ClientesController';
+
+    Route::group(['prefix' => $prefix, 'as' => $prefix . '.'], function () use ($controller) {
+        Route::get('/', ['as' => 'index', 'uses' => $controller . '@index']);
+        Route::get('/create', ['as' => 'create', 'uses' => $controller . '@create']);
+        Route::post('/', ['as' => 'store', 'uses' => $controller . '@store']);
+        Route::get('/{id}/edit', ['as' => 'edit', 'uses' => $controller . '@edit']);
+        Route::put('/{id}', ['as' => 'update', 'uses' => $controller . '@update']);
+        Route::delete('/{id}', ['as' => 'destroy', 'uses' => $controller . '@destroy']);
+    });
+
     /*
     |--------------------------------------------------------------------------
     | Papéis
@@ -59,6 +77,25 @@ Route::group(['middleware' => 'auth'], function () {
     */
     $prefix = 'grupos';
     $controller = 'GruposController';
+
+    Route::group(['prefix' => $prefix, 'as' => $prefix . '.'], function () use ($controller) {
+        Route::get('/', ['as' => 'index', 'uses' => $controller . '@index']);
+        Route::get('/create', ['as' => 'create', 'uses' => $controller . '@create']);
+        Route::post('/', ['as' => 'store', 'uses' => $controller . '@store']);
+        Route::get('/{id}/edit', ['as' => 'edit', 'uses' => $controller . '@edit']);
+        Route::put('/{id}', ['as' => 'update', 'uses' => $controller . '@update']);
+        Route::delete('/{id}', ['as' => 'destroy', 'uses' => $controller . '@destroy']);
+        Route::get('/{id}/participantes', ['as' => 'participantes', 'uses' => $controller . '@participantes']);
+        Route::get('/{id}/adicionarParticipantes', ['as' => 'adicionarParticipantes', 'uses' => $controller . '@adicionarParticipantes']);
+    });
+
+        /*
+    |--------------------------------------------------------------------------
+    | Grupos
+    |--------------------------------------------------------------------------
+    */
+    $prefix = 'chamadas';
+    $controller = 'ChamadasController';
 
     Route::group(['prefix' => $prefix, 'as' => $prefix . '.'], function () use ($controller) {
         Route::get('/', ['as' => 'index', 'uses' => $controller . '@index']);
