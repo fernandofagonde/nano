@@ -20,7 +20,9 @@ class Clientes extends Authenticatable
         'endereco',
         'titulo',
         'descricao',
-        'logo'
+        'logo',
+        'fundo',
+        'url'
     ];
 
     /**

@@ -16,32 +16,24 @@ class PessoasTableSeeder extends Seeder
     {
         Usuarios::create([
             'nome' => 'Fernando Fagonde',
-            'email' => 'fernando@alvoradadapaz.org.br',
+            'email' => 'fernando@ipsillon.cc',
             'login' => 'fernando',
             'telefone'=>'53999028504',
             'senha' => '123456',
             'ativo' => true,
             'administrador' => true, 
         ]);
+
         Usuarios::create([
-            'nome' => 'Eliane Fagonde',
-            'email' => 'eliane@alvoradadapaz.org.br',
-            'login' => 'eliane',
-            'telefone'=>'53991416522',
+            'nome' => 'Leandro Pires',
+            'email' => 'leandro@ipsillon.cc',
+            'login' => 'leandro',
+            'telefone'=>'53981172281',
             'senha' => '123456',
             'ativo' => true,
             'administrador' => true, 
         ]);
 
-        Usuarios::create([
-            'nome' => 'Flávio Bitencourt',
-            'email' => 'flavio@alvoradadapaz.org.br',
-            'telefone'=>'53999991448',
-            'login' => 'flavio',
-            'senha' => '123456',
-            'ativo' => true,
-            'administrador' => true, 
-        ]);
 
         /**
          * Grupos

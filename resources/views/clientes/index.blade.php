@@ -63,6 +63,9 @@
                             @slot('route', 'clientes.destroy')
                             @slot('route_params', ['id' => $cliente->id])
                         @endcomponent
+                        @component('components.eye-btn')                            
+                            @slot('href',env('APP_URL').'/'.$cliente->url)
+                        @endcomponent
                     </td>
                 </tr>
             @empty

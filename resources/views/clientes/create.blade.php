@@ -7,7 +7,7 @@
         @slot('title', 'Criando cliente')
     @endcomponent
 
-    <form action="{{ route('clientes.store') }}" method="post">
+    <form action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         @include('clientes._form')

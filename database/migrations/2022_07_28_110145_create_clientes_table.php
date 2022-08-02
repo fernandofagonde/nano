@@ -17,12 +17,15 @@ return new class extends Migration
             $table->id();
             $table->text('nome');
             $table->text('email');
-            $table->text('telefone')->nullable();
+            $table->text('telefone');
 	        $table->text('endereco');
-            $table->text('titulo');
-            $table->text('descricao');
-            $table->text('logo');
-            $table->text('url');
+            $table->text('titulo')->nullable();
+            $table->text('descricao')->nullable();
+            $table->text('logo')->nullable();
+            $table->text('fundo')->nullable();
+            $table->text('url')->nullable();
+
+            
             
 	        $table->timestamps();
         });

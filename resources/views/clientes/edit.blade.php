@@ -5,15 +5,15 @@
 @section('content')
     @component('components.page-header')
         @slot('title')
-            Editando cliente <span class="text-muted">#{{ $cliente->id }}</span>
+            Editando cliente <span class="text-muted">#{{ $cliente->nome }}</span>
         @endslot
     @endcomponent
 
-    <form action="{{ route('clientes.update', ['id' => $cliente->id]) }}" method="post">
+    <form action="{{ route('clientes.update', ['id' => $cliente->id]) }}" method="post" enctype="multipart/form-data">
         @method('put')
         @csrf
 
-        @include('cliente._form')
+        @include('clientes._form')
     </form>
 @endsection
 

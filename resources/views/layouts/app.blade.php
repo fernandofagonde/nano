@@ -2,7 +2,7 @@
 <html lang="{{ config('app.locale') }}" class="default-style layout-offcanvas">
 <head>
     <title>
-        {{ View::hasSection('title') ? View::getSection('title').' - ' : '' }}Chamadas GEAP | Y
+        {{ View::hasSection('title') ? View::getSection('title').' - ' : '' }}Y - fast admin
     </title>
 
     <meta charset="utf-8">
@@ -72,6 +72,7 @@
 <!-- Application scripts -->
 <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
 <script src="{{ asset('assets/js/app.js') }}"></script>
+
 @stack('scripts')
 </body>
 </html>

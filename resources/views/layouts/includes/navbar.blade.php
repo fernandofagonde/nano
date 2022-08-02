@@ -3,9 +3,9 @@
     <!-- Brand -->
     <a href="{{ url('/') }}" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
         <span class="app-brand-logo demo">
-            <img src="{{ asset('assets/images/logo.png') }}">
+            <img src="{{ asset('assets/images/logo.png') }}" style="width:25px">
         </span>
-        <span class="app-brand-text demo font-weight-normal ml-2">Chamadas GEAP</span>
+        <span class="app-brand-text demo font-weight-normal ml-2">Fast Admin</span>
     </a>
 
     @if(!config('app.horizontal_sidenav'))
