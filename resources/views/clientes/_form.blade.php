@@ -19,7 +19,7 @@
                 @slot('required', true)
             @endcomponent
         </div>
-        <div class="form-row">        
+        <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('label', 'E-mail')
@@ -36,7 +36,7 @@
                 @slot('input_class', 'phone-mask')
             @endcomponent
         </div>
-        <div class="form-row">        
+        <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-5')
                 @slot('type', 'file')
@@ -44,9 +44,9 @@
                 @slot('name', 'logo')
                 @slot('value', $cliente->logo)
             @endcomponent
-            @component('components.eye-btn')                            
+            @component('components.eye-btn')
                 @slot('column_size', 'col-md-1')
-                @slot('href','https://ipsillon.cc/'.$cliente->url)
+                @slot('href', 'https://ipsillon.cc/' . $cliente->url)
             @endcomponent
             @component('components.form-input')
                 @slot('column_size', 'col-md-5')
@@ -55,36 +55,56 @@
                 @slot('name', 'fundo')
                 @slot('value', $cliente->fundo)
             @endcomponent
-            @component('components.eye-btn')                            
+            @component('components.eye-btn')
                 @slot('column_size', 'col-md-5')
-                @slot('href','https://ipsillon.cc/'.$cliente->url)
+                @slot('href', 'https://ipsillon.cc/' . $cliente->url)
             @endcomponent
         </div>
 
-        <div class="form-row">                    
+        <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-12')
                 @slot('label', 'Título')
                 @slot('name', 'titulo')
-                @slot('value', $cliente->titulo)                
+                @slot('value', $cliente->titulo)
             @endcomponent
         </div>
-        <div class="form-row">        
+        <div class="form-row">
             @component('components.form-textarea')
                 @slot('column_size', 'col-md-12')
                 @slot('label', 'Decrição')
                 @slot('name', 'descricao')
                 @slot('value', $cliente->descricao)
-            @endcomponent            
+            @endcomponent
         </div>
-        <div class="form-row">        
+        <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-12')
                 @slot('label', 'URL (https://ipsillon.cc/_______)')
                 @slot('name', 'url')
-                @slot('value', $cliente->url)                
+                @slot('value', $cliente->url)
             @endcomponent
-        </div>        
+        </div>
+        <div class="form-row">
+            @component('components.form-input')
+                @slot('column_size', 'col-md-4')
+                @slot('label', 'Cor da fonte')
+                @slot('name', 'font_color')
+                @slot('value', $cliente->font_color)
+            @endcomponent
+            @component('components.form-input')
+                @slot('column_size', 'col-md-4')
+                @slot('label', 'Cor do botão')
+                @slot('name', 'button_color')
+                @slot('value', $cliente->button_color)
+            @endcomponent
+            @component('components.form-input')
+                @slot('column_size', 'col-md-4')
+                @slot('label', 'Cor da fonte do botão')
+                @slot('name', 'button_font_color')
+                @slot('value', $cliente->button_font_color)
+            @endcomponent
+        </div>
     </div>
 </div>
 

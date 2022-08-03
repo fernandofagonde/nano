@@ -27,7 +27,10 @@ class ClientesRequest extends FormRequest
             'nome' => 'required',
             'telefone' => 'required',
             'endereco' => 'required',
-            'email' => 'required|email'            
+            'email' => 'required|email',
+            'font_color' => 'required',
+            'button_color' => 'required',
+            'button_font_color' => 'required'            
         ];
 
         return $rules;

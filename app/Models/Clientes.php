@@ -22,58 +22,8 @@ class Clientes extends Authenticatable
         'descricao',
         'logo',
         'fundo',
-        'url'
+        'url', 
+        'font_color','button_color','button_font_color'
     ];
-
-    /**
-     * Get the password for the user
-     *
-     * @return string
-     */
-    public function getAuthPassword()
-    {
-        return $this->attributes['senha'];
-    }
-
-    /**
-     * Overrides the method to ignore the remember token
-     *
-     * @param string $key
-     * @param mixed $value
-     */
-    public function setAttribute($key, $value)
-    {
-        $isRememberTokenAttribute = $key == $this->getRememberTokenName();
-
-        if (!$isRememberTokenAttribute) {
-            parent::setAttribute($key, $value);
-        }
-    }
-
-    public function setTelefoneAttribute($value)
-    {
-        $this->attributes['telefone'] = so_numero($value);
-    }
-
-    
-    public function getDtCriacaoFormatadoAttribute()
-    {
-        return timestamp_bra($this->attributes['created_at']);
-    }
-
-    public function getTelefoneFormatadoAttribute()
-    {
-        return formata_telefone($this->attributes['telefone']);
-    }
-
-    public function grupos()
-    {
-        return $this->belongsToMany('\App\Models\Grupos', 'grupos_papeis_clientes');
-    }
-    
-    public function papeis()
-    {
-        return $this->belongsToMany('\App\Models\Papeis', 'grupos_papeis_clientes');
-    }
 
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Lucio Bonfada</title>
+    <title>{{$cliente->nome}} </title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -31,14 +31,14 @@
             }
 
             body{
-              color: #f4f800 ;
+              color:{{$cliente->font_color}} ;
             }
               
             
 
             .btn{
-              color:#000000;
-              background-color: #ffd600; 
+              color:{{$cliente->button_font_color}};
+              background-color: {{$cliente->button_color}}; 
               border:none;
             }
 
