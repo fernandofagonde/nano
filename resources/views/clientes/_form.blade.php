@@ -38,27 +38,19 @@
         </div>
         <div class="form-row">
             @component('components.form-input')
-                @slot('column_size', 'col-md-5')
+                @slot('column_size', 'col-md-6')
                 @slot('type', 'file')
                 @slot('label', 'Logo')
                 @slot('name', 'logo')
                 @slot('value', $cliente->logo)
             @endcomponent
-            @component('components.eye-btn')
-                @slot('column_size', 'col-md-1')
-                @slot('href', 'https://ipsillon.cc/' . $cliente->url)
-            @endcomponent
             @component('components.form-input')
-                @slot('column_size', 'col-md-5')
+                @slot('column_size', 'col-md-6')
                 @slot('type', 'file')
                 @slot('label', 'Fundo')
                 @slot('name', 'fundo')
                 @slot('value', $cliente->fundo)
-            @endcomponent
-            @component('components.eye-btn')
-                @slot('column_size', 'col-md-5')
-                @slot('href', 'https://ipsillon.cc/' . $cliente->url)
-            @endcomponent
+            @endcomponent            
         </div>
 
         <div class="form-row">
@@ -87,19 +79,22 @@
         </div>
         <div class="form-row">
             @component('components.form-input')
-                @slot('column_size', 'col-md-4')
+                @slot('column_size', 'col-md-2')
+                @slot('type','color');
                 @slot('label', 'Cor da fonte')
                 @slot('name', 'font_color')
                 @slot('value', $cliente->font_color)
             @endcomponent
             @component('components.form-input')
-                @slot('column_size', 'col-md-4')
+                @slot('column_size', 'col-md-2')
+                @slot('type','color');
                 @slot('label', 'Cor do botão')
                 @slot('name', 'button_color')
                 @slot('value', $cliente->button_color)
             @endcomponent
             @component('components.form-input')
-                @slot('column_size', 'col-md-4')
+                @slot('type','color');
+                @slot('column_size', 'col-md-2')
                 @slot('label', 'Cor da fonte do botão')
                 @slot('name', 'button_font_color')
                 @slot('value', $cliente->button_font_color)
