@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}" class="default-style layout-offcanvas">
+
 <head>
     <title>
-        {{ View::hasSection('title') ? View::getSection('title').' - ' : '' }}Y - fast admin
+        {{ View::hasSection('title') ? View::getSection('title') . ' - ' : '' }}Y - fast admin
     </title>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <link href="{{ asset('assets/fonts/roboto/roboto-fontface.css') }}" rel="stylesheet">
@@ -32,7 +33,8 @@
     <link rel="stylesheet" href="{{ asset('assets/appwork/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/appwork/vendor/libs/sweetalert2/sweetalert2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/appwork/vendor/libs/select2/select2.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/appwork/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/appwork/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.css') }}">
 
     <!-- Application stylesheets -->
     <link rel="stylesheet" href="{{ asset('assets/appwork/vendor/css/pages/authentication.css') }}">
@@ -42,7 +44,10 @@
 
     <!-- Load polyfills -->
     <script src="{{ asset('assets/appwork/vendor/js/polyfills.js') }}"></script>
-    <script>document['documentMode'] === 10 && document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')</script>
+    <script>
+        document['documentMode'] === 10 && document.write(
+            '<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')
+    </script>
 
     <script src="{{ asset('assets/appwork/vendor/js/material-ripple.js') }}"></script>
     <script src="{{ asset('assets/appwork/vendor/js/layout-helpers.js') }}"></script>
@@ -51,28 +56,49 @@
         window.APP_HOME_URL = "{{ url('/') }}";
         window.APP_CSRF_TOKEN = "{{ csrf_token() }}";
     </script>
+
+    <!-- tinymce -->
+    <script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea#tinymce',
+            height: 200,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+    </script>
 </head>
 
 <body>
-@yield('layout-content')
+    @yield('layout-content')
 
-<!-- Core scripts -->
-<script src="{{ asset('assets/js/jquery-3.4.0.min.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/libs/popper/popper.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/js/bootstrap.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/js/sidenav.js') }}"></script>
+    <!-- Core scripts -->
+    <script src="{{ asset('assets/js/jquery-3.4.0.min.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/js/sidenav.js') }}"></script>
 
-<!-- Libs -->
-<script src="{{ asset('assets/appwork/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/libs/select2/select2.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
-<script src="{{ asset('assets/appwork/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.pt-BR.js') }}"></script>
+    <!-- Libs -->
+    <script src="{{ asset('assets/appwork/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/libs/select2/select2.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('assets/appwork/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.pt-BR.js') }}"></script>
 
-<!-- Application scripts -->
-<script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
-<script src="{{ asset('assets/js/app.js') }}"></script>
+    <!-- Application scripts -->
+    <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 
-@stack('scripts')
+    @stack('scripts')
 </body>
+
 </html>

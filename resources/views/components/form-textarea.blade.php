@@ -2,7 +2,7 @@
     <label class="form-label">
         {!! $label . (isset($required) ? ' <span class="required">*</span>' : '') !!}
     </label>
-    <textarea name="{{ $name }}"
+    <textarea id="tinymce" name="{{ $name }}"
               class="form-control{{ isset($textarea_class) ? ' ' . $textarea_class : '' }}"
               rows="{{ $rows ?? 3 }}"{{ isset($disabled) && $disabled ? ' disabled' : '' }}>{{ old($name, $value ?? '') }}</textarea>
     @if(isset($help_text))

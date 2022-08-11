@@ -21,20 +21,30 @@
         </div>
         <div class="form-row">
             @component('components.form-input')
-                @slot('column_size', 'col-md-6')
+                @slot('column_size', 'col-md-12')
                 @slot('label', 'E-mail')
                 @slot('required', true)
                 @slot('name', 'email')
                 @slot('value', $cliente->email)
             @endcomponent
+        </div>
+        <div class="form-row">
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Whatsapp')
+                @slot('name', 'whatsapp')
+                @slot('required', true)
+                @slot('value', $cliente->whatsapp)
+                @slot('input_class', 'phone-mask')
+            @endcomponent
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('label', 'Telefone')
                 @slot('name', 'telefone')
-                @slot('required', true)
                 @slot('value', $cliente->telefone)
                 @slot('input_class', 'phone-mask')
             @endcomponent
+
         </div>
         <div class="form-row">
             @component('components.form-input')
@@ -50,7 +60,7 @@
                 @slot('label', 'Fundo')
                 @slot('name', 'fundo')
                 @slot('value', $cliente->fundo)
-            @endcomponent            
+            @endcomponent
         </div>
 
         <div class="form-row">
@@ -71,30 +81,65 @@
         </div>
         <div class="form-row">
             @component('components.form-input')
-                @slot('column_size', 'col-md-12')
-                @slot('label', 'URL (https://ipsillon.cc/_______)')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'URL (https://nano.ipsillon.cc/_______)')
                 @slot('name', 'url')
                 @slot('value', $cliente->url)
+            @endcomponent
+
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Instagram')
+                @slot('name', 'font_color')
+                @slot('value', $cliente->instagram)
             @endcomponent
         </div>
         <div class="form-row">
             @component('components.form-input')
-                @slot('column_size', 'col-md-2')
-                @slot('type','color');
+                @slot('column_size', 'col-md-3')
+                @slot('label', 'Facebook')
+                @slot('name', 'font_color')
+                @slot('value', $cliente->facebook)
+            @endcomponent
+            @component('components.form-input')
+                @slot('column_size', 'col-md-3')
+                @slot('label', 'Youtube')
+                @slot('name', 'font_color')
+                @slot('value', $cliente->youtube)
+            @endcomponent
+
+            @component('components.form-input')
+                @slot('column_size', 'col-md-3')
+                @slot('label', 'Linkedin')
+                @slot('name', 'font_color')
+                @slot('value', $cliente->linkedin)
+            @endcomponent
+            @component('components.form-input')
+                @slot('column_size', 'col-md-3')
+                @slot('label', 'site/loja virtual')
+                @slot('name', 'font_color')
+                @slot('value', $cliente->site)
+            @endcomponent
+
+        </div>
+        <div class="form-row">
+            @component('components.form-input')
+                @slot('column_size', 'col-md-4')
+                @slot('type', 'color');
                 @slot('label', 'Cor da fonte')
                 @slot('name', 'font_color')
                 @slot('value', $cliente->font_color)
             @endcomponent
             @component('components.form-input')
-                @slot('column_size', 'col-md-2')
-                @slot('type','color');
+                @slot('column_size', 'col-md-4')
+                @slot('type', 'color');
                 @slot('label', 'Cor do botão')
                 @slot('name', 'button_color')
                 @slot('value', $cliente->button_color)
             @endcomponent
             @component('components.form-input')
-                @slot('type','color');
-                @slot('column_size', 'col-md-2')
+                @slot('type', 'color');
+                @slot('column_size', 'col-md-4')
                 @slot('label', 'Cor da fonte do botão')
                 @slot('name', 'button_font_color')
                 @slot('value', $cliente->button_font_color)

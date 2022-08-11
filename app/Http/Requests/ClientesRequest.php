@@ -24,9 +24,8 @@ class ClientesRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'nome' => 'required',
-            'telefone' => 'required',
-            'endereco' => 'required',
+            'nome' => 'required',            
+            'whatsapp' => 'required',
             'email' => 'required|email',
             'font_color' => 'required',
             'button_color' => 'required',

@@ -23,7 +23,15 @@ class Clientes extends Authenticatable
         'logo',
         'fundo',
         'url', 
-        'font_color','button_color','button_font_color'
+        'font_color',
+        'button_color',
+        'button_font_color',
+        'facebook',
+        'instagram',
+        'linkedin',
+        'youtube',
+        'whatsapp',
+        'site',
     ];
 
 }
