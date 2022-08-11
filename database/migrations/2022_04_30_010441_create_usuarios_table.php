@@ -9,7 +9,7 @@ class CreateUsuariosTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function up()
     {
@@ -23,6 +23,7 @@ class CreateUsuariosTable extends Migration
             $table->boolean('ativo');
             $table->boolean('administrador');
             $table->timestamps();
+            
         });
     }
 
