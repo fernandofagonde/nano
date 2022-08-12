@@ -11,9 +11,9 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="{{asset('assets/public/css/mdb.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/public/css/mdb.min.css')}}" />
     <!-- Custom styles -->
-    <link rel="stylesheet" href="{{asset('assets/public/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('public/assets/public/css/style.css')}}" />
 </head>
 
 <body>
@@ -64,9 +64,9 @@
     <!--Main Navigation-->
 
     <!-- MDB -->
-    <script type="text/javascript" src="{{ asset('assets/public/js/mdb.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('public/assets/public/js/mdb.min.js') }}" ></script>
     <!-- Custom scripts -->
-    <script type="text/javascript" src="{{ asset('assets/public/js/script.js') }}" /></script>
+    <script type="text/javascript" src="{{ asset('public/assets/public/js/script.js') }}" /></script>
 </body>
 
 </html>
