@@ -15,9 +15,9 @@ class AlterClientesTable extends Migration
     public function up()
     {
         Schema::table('clientes', function (Blueprint $table) {
-            $table->string('font_color');
-            $table->string('button_color');
-            $table->string('button_font_color');
+            $table->string('font_color')->nullable();
+            $table->string('button_color')->nullable();
+            $table->string('button_font_color')->nullable();
         });
     }
 
