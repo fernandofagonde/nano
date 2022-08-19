@@ -11,9 +11,9 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="{{asset('public/assets/public/css/mdb.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('public/assets/public/css/mdb.min.css') }}" />
     <!-- Custom styles -->
-    <link rel="stylesheet" href="{{asset('public/assets/public/css/style.css')}}" />
+    <link rel="stylesheet" href="{{ asset('public/assets/public/css/style.css') }}" />
 </head>
 
 <body>
@@ -55,6 +55,16 @@
                         <h5 class="mb-4">{!! $cliente->descricao !!}</h5>
                         <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
                             role="button" rel="nofollow" target="_blank">Fale conosco</a>
+                        <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
+                            role="button" rel="nofollow" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
+                            role="button" rel="nofollow" target="_blank">Fale conosco</a>
+                        <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
+                            role="button" rel="nofollow" target="_blank">Fale conosco</a>
+                        <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
+                            role="button" rel="nofollow" target="_blank">Fale conosco</a>
+                        <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
+                            role="button" rel="nofollow" target="_blank">Fale conosco</a>
                     </div>
                 </div>
             </div>
@@ -64,9 +74,10 @@
     <!--Main Navigation-->
 
     <!-- MDB -->
-    <script type="text/javascript" src="{{ asset('public/assets/public/js/mdb.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('public/assets/public/js/mdb.min.js') }}"></script>
     <!-- Custom scripts -->
-    <script type="text/javascript" src="{{ asset('public/assets/public/js/script.js') }}" /></script>
+    <script type="text/javascript" src="{{ asset('public/assets/public/js/script.js') }}" />
+    </script>
 </body>
 
 </html>

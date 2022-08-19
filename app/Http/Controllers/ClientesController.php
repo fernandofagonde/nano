@@ -60,7 +60,7 @@ class ClientesController extends Controller
     public function store(ClientesRequest $request)
     {
         $cliente = $this->clientes->fill($request->all());
-
+        
         if ($request->logo || $request->fundo) {
             $imagens = $this->imageUpload($request);
             if ($imagens['logo']) {
@@ -136,8 +136,10 @@ class ClientesController extends Controller
             Storage::disk('local')->put('public/'.Str::slug($request->get('url')) . '/' . $nome_logo, file_get_contents($logo),  'public');
             $imagens['logo'] = $nome_logo;
         }
+        
         if ($request->file('fundo')) {
             $fundo = $request->file('fundo');
+            
             $nome_fundo = 'fundo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $fundo->getClientOriginalExtension();
 
             Storage::disk('local')->put('public/'.Str::slug($request->get('url')) . '/' . $nome_fundo, file_get_contents($fundo), 'public');
