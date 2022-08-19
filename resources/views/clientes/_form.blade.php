@@ -98,26 +98,26 @@
             @component('components.form-input')
                 @slot('column_size', 'col-md-3')
                 @slot('label', 'Facebook')
-                @slot('name', 'font_color')
+                @slot('name', 'facebook')
                 @slot('value', $cliente->facebook)
             @endcomponent
             @component('components.form-input')
                 @slot('column_size', 'col-md-3')
                 @slot('label', 'Youtube')
-                @slot('name', 'font_color')
+                @slot('name', 'instagram')
                 @slot('value', $cliente->youtube)
             @endcomponent
 
             @component('components.form-input')
                 @slot('column_size', 'col-md-3')
                 @slot('label', 'Linkedin')
-                @slot('name', 'font_color')
+                @slot('name', 'linkedin')
                 @slot('value', $cliente->linkedin)
             @endcomponent
             @component('components.form-input')
                 @slot('column_size', 'col-md-3')
                 @slot('label', 'site/loja virtual')
-                @slot('name', 'font_color')
+                @slot('name', 'site')
                 @slot('value', $cliente->site)
             @endcomponent
 
