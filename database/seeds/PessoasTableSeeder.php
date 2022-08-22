@@ -33,6 +33,15 @@ class PessoasTableSeeder extends Seeder
             'ativo' => true,
             'administrador' => true, 
         ]);
+        Usuarios::create([
+            'nome' => 'Regis Picaz',
+            'email' => 'regis@ipsillon.cc',
+            'login' => 'regis',
+            'telefone'=>'53981296445',
+            'senha' => '123456',
+            'ativo' => true,
+            'administrador' => true, 
+        ]);
         
     }
 }
