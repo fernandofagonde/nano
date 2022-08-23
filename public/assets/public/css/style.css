@@ -1,0 +1,30 @@
+/* Espaçamento Superior e inferior da logo */
+.container img {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+/*Alinhamento da descrição do cliente*/
+p{
+  text-align: justify;
+  margin-bottom: 4em;
+}
+
+/* Espaçamento inferior do paragrafo Cliente Descrição */
+.mb-3 {
+  margin-bottom: 2rem !important;
+}
+
+/* Tamanho ícones redes sociais */
+i{
+  font-size: 2.7em;
+  margin-left: 1em;
+}
+
+/* Alinhamento dos botões */
+.btnLinks{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
