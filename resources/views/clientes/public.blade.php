@@ -10,8 +10,11 @@
         <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" /> -->
         <!-- Google Fonts Roboto -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+        <!--Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- MDB -->
-        <link rel="stylesheet" href="{{asset('assets/public/css/mdb.min.css')}}" />
+        <!--
+        <link rel="stylesheet" href="{{asset('assets/public/css/mdb.min.css')}}" />-->
         <!-- Custom styles -->
         <link rel="stylesheet" href="{{asset('assets/public/css/style.css')}}" />
     </head>
@@ -33,8 +36,6 @@
             body {
                 color: {{ $cliente->font_color }};
             }
-
-
 
             .btn {
                 color: {{ $cliente->button_font_color }};
@@ -58,13 +59,13 @@
                             role="button" rel="nofollow" target="_blank">Fale conosco</a>
                             <div class="socialButtons">
                                 <a class="mb-4" href="{{ $cliente->instagram }}"
-                                    role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                    role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-instagram" style="color: {{ $cliente->button_color}}"></i></a>
                                 
                                 <a class="mb-4" href="{{ $cliente->facebook }}"
-                                    role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                                    role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-facebook" style="color: {{ $cliente->button_color}}"></i></a>
                                 
                                 <a class="mb-4" href="{{ $cliente->linkedin }}"
-                                    role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                                    role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-linkedin" style="color: {{ $cliente->button_color}}"></i></a>
                             </div>
                         </div>
                     </div>
@@ -82,6 +83,9 @@
     <script type="text/javascript" src="{{ asset('assets/public/js/mdb.min.js') }}" ></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="{{ asset('assets/public/js/script.js') }}" /></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

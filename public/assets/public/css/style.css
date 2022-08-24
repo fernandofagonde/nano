@@ -1,13 +1,17 @@
+body{
+  max-height:max-content;
+}
+
 /* Espaçamento Superior e inferior da logo */
-.container img {
+.container img ,btn {
   margin-top: 50px;
   margin-bottom: 80px;
+  max-width: 100%;
 }
 
 /*Alinhamento da descrição do cliente*/
 p{
   text-align: justify;
-  margin-bottom: 4em;
 }
 
 /* Espaçamento inferior do paragrafo Cliente Descrição */
@@ -23,6 +27,7 @@ i{
 
 /* Alinhamento dos botões */
 .btnLinks{
+  margin-top: 4em;
   display: flex;
   align-items: center;
   align-content: center;
