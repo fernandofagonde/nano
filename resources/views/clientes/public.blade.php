@@ -17,7 +17,7 @@
         <!--
         <link rel="stylesheet" href="{{asset('assets/public/css/mdb.min.css')}}" />-->
         <!-- Custom styles -->
-        <link rel="stylesheet" href="{{asset('assets/public/css/style.css')}}" />
+        <link rel="stylesheet" href="{{asset('public/assets/public/css/style.css')}}" />
     </head>
 
 <body>
