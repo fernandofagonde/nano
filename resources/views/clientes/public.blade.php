@@ -15,7 +15,7 @@
         <base url="/">
         <!-- MDB -->
         <!--
-        <link rel="stylesheet" href="{{asset('assets/public/css/mdb.min.css')}}" />-->
+        <link rel="stylesheet" href="{{asset('public/assets/public/css/mdb.min.css')}}" />-->
         <!-- Custom styles -->
         <link rel="stylesheet" href="{{asset('public/assets/public/css/style.css')}}" />
     </head>
@@ -84,9 +84,9 @@
     <script src="https://kit.fontawesome.com/dafdf19f34.js" crossorigin="anonymous"></script>
 
     <!-- MDB -->
-    <script type="text/javascript" src="{{ asset('assets/public/js/mdb.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('public/assets/public/js/mdb.min.js') }}" ></script>
     <!-- Custom scripts -->
-    <script type="text/javascript" src="{{ asset('assets/public/js/script.js') }}" /></script>
+    <script type="text/javascript" src="{{ asset('public/assets/public/js/script.js') }}" /></script>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
