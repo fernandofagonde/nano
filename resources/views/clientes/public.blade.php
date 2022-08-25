@@ -15,8 +15,9 @@
         <!-- MDB -->
         <!--
         <link rel="stylesheet" href="{{asset('assets/public/css/mdb.min.css')}}" />-->
+        <base url="/">
         <!-- Custom styles -->
-        <link rel="stylesheet" href="{{asset('assets/public/css/style.css')}}" />
+        <link rel="stylesheet" href="assets/public/css/style.css" />
     </head>
 
 <body>
