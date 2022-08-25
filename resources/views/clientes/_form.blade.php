@@ -90,7 +90,7 @@
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('label', 'Instagram')
-                @slot('name', 'font_color')
+                @slot('name', 'instagram')
                 @slot('value', $cliente->instagram)
             @endcomponent
         </div>
@@ -104,7 +104,7 @@
             @component('components.form-input')
                 @slot('column_size', 'col-md-3')
                 @slot('label', 'Youtube')
-                @slot('name', 'instagram')
+                @slot('name', 'youtube')
                 @slot('value', $cliente->youtube)
             @endcomponent
 

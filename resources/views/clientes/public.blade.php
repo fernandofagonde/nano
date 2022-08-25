@@ -25,7 +25,10 @@
         <style>
             #intro {
                 background-image: url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
-                height: 100vh;
+                background-repeat: no-repeat !important;
+                background-attachment: fixed !important;
+                background-position: center !important;
+                background-size: cover;
             }
 
             /* Height for devices larger than 576px */
@@ -53,18 +56,18 @@
                 <div class="container">
                     <div>
                         <h1 class="mb-3">{!! $cliente->titulo !!}</h1>
-                        <h5 class="mb-4">{!! $cliente->descricao !!}</h5>
+                        <h5 class="mb-4 col-lg-8 col-md-12">{!! $cliente->descricao !!}</h5>
                         <div class="btnLinks">
                             <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
                             role="button" rel="nofollow" target="_blank">Fale conosco</a>
                             <div class="socialButtons">
-                                <a class="mb-4" href="{{ $cliente->instagram }}"
+                                <a class="mb-4" href="https://{{ $cliente->instagram }}"
                                     role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-instagram" style="color: {{ $cliente->button_color}}"></i></a>
                                 
-                                <a class="mb-4" href="{{ $cliente->facebook }}"
+                                <a class="mb-4" href="https://{{ $cliente->facebook }}"
                                     role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-facebook" style="color: {{ $cliente->button_color}}"></i></a>
                                 
-                                <a class="mb-4" href="{{ $cliente->linkedin }}"
+                                <a class="mb-4" href="https://{{ $cliente->linkedin }}"
                                     role="button" rel="nofollow" target="_blank"><i class="fa-brands fa-linkedin" style="color: {{ $cliente->button_color}}"></i></a>
                             </div>
                         </div>

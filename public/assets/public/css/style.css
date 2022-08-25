@@ -1,5 +1,10 @@
-body{
-  max-height:max-content;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.mask{
+  height: 100%;
 }
 
 /* Espaçamento Superior e inferior da logo */
@@ -33,3 +38,24 @@ i{
   align-content: center;
 }
 
+/* Responsividade */
+
+@media screen and (max-width: 767px) {
+  .container {
+    text-align: center;
+  }
+
+  .mask{
+    height: 100% !important;
+  }
+
+  .btnLinks{
+    display: inline-grid;
+  }
+
+  .socialButtons i{
+    margin-left: 0;
+    margin: 30px;
+    margin-top: 1em;
+  }
+}
