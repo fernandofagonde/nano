@@ -33,10 +33,6 @@
                 background-size: cover;
             }
 
-            html{
-                height: 100vh;
-            }
-
             .mask{
                 height: 100vh;
             }
