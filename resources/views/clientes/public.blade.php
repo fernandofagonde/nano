@@ -13,11 +13,12 @@
         <!--Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <base url="/">
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="{{asset('public/assets/public/css/style.css')}}" />
+
         <!-- MDB -->
         <!--
         <link rel="stylesheet" href="{{asset('public/assets/public/css/mdb.min.css')}}" />-->
-        <!-- Custom styles -->
-        <link rel="stylesheet" href="{{asset('public/assets/public/css/style.css')}}" />
     </head>
 
 <body>
@@ -26,10 +27,74 @@
         <style>
             #intro {
                 background-image: url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
-                background-repeat: no-repeat !important;
-                background-attachment: fixed !important;
-                background-position: center !important;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
                 background-size: cover;
+            }
+
+            html{
+                height: 100vh;
+            }
+
+            .mask{
+                height: 100vh;
+            }
+
+            /* Espaçamento Superior e inferior da logo */
+            .container img ,btn {
+                margin-top: 50px;
+                margin-bottom: 80px;
+                max-width: 100%;
+            }
+
+            /*Alinhamento da descrição do cliente*/
+            p{
+                text-align: justify;
+            }
+
+            /* Espaçamento inferior do paragrafo Cliente Descrição */
+            .mb-3 {
+                margin-bottom: 2rem !important;
+            }
+
+            /* Tamanho ícones redes sociais */
+            i{
+                font-size: 2.7em !important;
+                margin-left: 1em !important;
+            }
+
+            /* Alinhamento dos botões */
+            .btnLinks{
+                margin-top: 4em;
+                padding-bottom: 2em;
+                display: flex;
+                align-items: center;
+                align-content: center;
+            }
+
+            /* Responsividade */
+
+            @media screen and (max-width: 767px) {
+
+                #intro, .mask {
+                    height: 100% !important;
+                }
+
+                .container {
+                    text-align: center;
+                    padding: 2em;
+                }
+
+                .btnLinks{
+                    display: inline-grid;
+                }
+
+                .socialButtons i{
+                    margin-left: 0;
+                    margin: 30px;
+                    margin-top: 1em;
+                }
             }
 
             /* Height for devices larger than 576px */
@@ -50,14 +115,14 @@
 
 
         <div id="intro" class="bg-image shadow-2-strong">
-            <div class="mask" style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="mask vh-100" style="background-color: rgba(0, 0, 0, 0.5);">
                 <div class="container">
                     <img src="<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->logo); ?>">
                 </div>
-                <div class="container">
+                <div class="container content">
                     <div>
                         <h1 class="mb-3">{!! $cliente->titulo !!}</h1>
-                        <h5 class="mb-4 col-lg-8 col-md-12">{!! $cliente->descricao !!}</h5>
+                        <h5 class="mb-4 col-lg-10 col-md-12">{!! $cliente->descricao !!}</h5>
                         <div class="btnLinks">
                             <a class="btn btn-outline-light btn-lg m-2" href="https://wa.me/{{ $cliente->telefone }}"
                             role="button" rel="nofollow" target="_blank">Fale conosco</a>
