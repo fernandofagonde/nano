@@ -25,17 +25,17 @@
     <!--Main Navigation-->
     <header>
         <style>
-            #intro {
-                background-image: url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
+
+            body {
+                background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
                 background-size: cover;
+                background-attachment: fixed;
             }
 
+            /*
             .mask{
                 height: 100vh;
-            }
+            }*/
 
             /* Espaçamento Superior e inferior da logo */
             .container img ,btn {
@@ -73,8 +73,10 @@
 
             @media screen and (max-width: 767px) {
 
-                #intro, .mask {
-                    height: 100% !important;
+                body {
+                background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
+                background-size: cover;
+                background-attachment: fixed;
                 }
 
                 .container {
@@ -111,7 +113,7 @@
 
 
         <div id="intro" class="bg-image shadow-2-strong">
-            <div class="mask vh-100" style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="mask">
                 <div class="container">
                     <img src="<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->logo); ?>">
                 </div>
