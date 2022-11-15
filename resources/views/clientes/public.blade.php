@@ -128,6 +128,11 @@
                                     target="_blank">Chame no whatsapp</a>
                             @endif
                             <div class="socialButtons">
+                                @if (!is_null($cliente->telefone))
+                                    <a class="mb-4" href="https://{{ $cliente->telefone }}" role="button"
+                                        rel="nofollow" target="_blank"><i class="fa-solid fa-phone"
+                                            style="color: {{ $cliente->button_color }}"></i></a>
+                                @endif
                                 @if (!is_null($cliente->instagram))
                                     <a class="mb-4" href="https://{{ $cliente->instagram }}" role="button"
                                         rel="nofollow" target="_blank"><i class="fa-brands fa-instagram"
@@ -141,6 +146,11 @@
                                 @if (!is_null($cliente->linkedin))
                                     <a class="mb-4" href="https://{{ $cliente->linkedin }}" role="button"
                                         rel="nofollow" target="_blank"><i class="fa-brands fa-linkedin"
+                                            style="color: {{ $cliente->button_color }}"></i></a>
+                                @endif
+                                @if (!is_null($cliente->site))
+                                    <a class="mb-4" href="https://{{ $cliente->site }}" role="button"
+                                        rel="nofollow" target="_blank"><i class="fa-solid fa-globe"
                                             style="color: {{ $cliente->button_color }}"></i></a>
                                 @endif
                             </div>
