@@ -32,6 +32,7 @@ class Clientes extends Authenticatable
         'youtube',
         'whatsapp',
         'site',
+        'categorias',
     ];
 
 }

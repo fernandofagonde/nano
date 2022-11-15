@@ -50,7 +50,7 @@
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('type', 'file')
-                @slot('label', 'Logo')
+                @slot('label', 'Logo (250X150px)')
                 @slot('name', 'logo')
                 @slot('value', $cliente->logo)
             @endcomponent
@@ -144,6 +144,14 @@
                 @slot('name', 'button_font_color')
                 @slot('value', $cliente->button_font_color)
             @endcomponent
+        </div>
+        <div class="form-row">
+            @component('components.form-input')
+            @slot('column_size', 'col-md-12')
+            @slot('label', 'Categorias (separado por ";")')
+            @slot('name', 'categorias')
+            @slot('value', $cliente->categorias)
+        @endcomponent
         </div>
     </div>
 </div>

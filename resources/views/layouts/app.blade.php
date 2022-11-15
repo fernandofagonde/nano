@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        {{ View::hasSection('title') ? View::getSection('title') . ' - ' : '' }}Y - fast admin
+        {{ View::hasSection('title') ? View::getSection('title') . ' - ' : '' }}Y - nano
     </title>
 
     <meta charset="utf-8">

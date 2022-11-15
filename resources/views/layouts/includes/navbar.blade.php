@@ -5,7 +5,7 @@
         <span class="app-brand-logo demo">
             <img src="{{ asset('assets/images/logo.png') }}" style="width:25px">
         </span>
-        <span class="app-brand-text demo font-weight-normal ml-2">Fast Admin</span>
+        <span class="app-brand-text demo font-weight-normal ml-2">Nano</span>
     </a>
 
     @if(!config('app.horizontal_sidenav'))
