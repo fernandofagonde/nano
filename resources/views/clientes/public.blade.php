@@ -121,18 +121,19 @@
                     <div>
                         <h1 class="mb-3">{!! $cliente->titulo !!}</h1>
                         <h5 class="mb-4 col-lg-10 col-md-12">{!! $cliente->descricao !!}</h5>
+                        <div class="mb-4 col-lg-10 col-md-12">
+                            {!! $cliente->endereco !!}
+                        </div>
+                        <div class="mb-4 col-lg-10 col-md-12">
+                            {!! $cliente->telefone !!}
+                        </div>
                         <div class="btnLinks">
                             @if (!is_null($cliente->whatsapp))
-                                <a class="btn btn-outline-light btn-lg m-2"
+                                <a class="btn btn-outline-light btn-xs m-2"
                                     href="https://wa.me/{{ $cliente->whatsapp }}" role="button" rel="nofollow"
-                                    target="_blank">Chame no whatsapp</a>
+                                    target="_blank"> <i style="font-size:20px !important;"class="fa fa-whatsapp"></i>  Chame no whatsapp</a>
                             @endif
                             <div class="socialButtons">
-                                @if (!is_null($cliente->telefone))
-                                    <a class="mb-4" href="https://{{ $cliente->telefone }}" role="button"
-                                        rel="nofollow" target="_blank"><i class="fa-solid fa-phone"
-                                            style="color: {{ $cliente->button_color }}"></i></a>
-                                @endif
                                 @if (!is_null($cliente->instagram))
                                     <a class="mb-4" href="https://{{ $cliente->instagram }}" role="button"
                                         rel="nofollow" target="_blank"><i class="fa-brands fa-instagram"
@@ -149,8 +150,8 @@
                                             style="color: {{ $cliente->button_color }}"></i></a>
                                 @endif
                                 @if (!is_null($cliente->site))
-                                    <a class="mb-4" href="https://{{ $cliente->site }}" role="button"
-                                        rel="nofollow" target="_blank"><i class="fa-solid fa-globe"
+                                    <a class="mb-4" href="https://{{ $cliente->site }}" role="button" rel="nofollow"
+                                        target="_blank"><i class="fa-solid fa-globe"
                                             style="color: {{ $cliente->button_color }}"></i></a>
                                 @endif
                             </div>
