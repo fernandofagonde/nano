@@ -122,16 +122,20 @@
                         <h1 class="mb-3">{!! $cliente->titulo !!}</h1>
                         <h5 class="mb-4 col-lg-10 col-md-12">{!! $cliente->descricao !!}</h5>
                         <div class="mb-4 col-lg-10 col-md-12">
-                            {!! $cliente->endereco !!}
-                        </div>
-                        <div class="mb-4 col-lg-10 col-md-12">
-                            {!! $cliente->telefone !!}
+                            @if (!is_null($cliente->endereco))
+                                <p> Endereço: {!! $cliente->endereco !!}</p>
+                            @endif
+
+                            @if (!is_null($cliente->telefone))
+                                <p> Telefone: {!! $cliente->telefone !!} </p>
+                            @endif
                         </div>
                         <div class="btnLinks">
                             @if (!is_null($cliente->whatsapp))
                                 <a class="btn btn-outline-light btn-lg m-2"
                                     href="https://wa.me/{{ $cliente->whatsapp }}" role="button" rel="nofollow"
-                                    target="_blank"> <i style="font-size:20px !important;"class="fa fa-whatsapp"></i>  Chame no whatsapp</a>
+                                    target="_blank"> <i style="font-size:20px !important;"class="fa fa-whatsapp"></i>
+                                    Chame no whatsapp</a>
                             @endif
                             <div class="socialButtons">
                                 @if (!is_null($cliente->instagram))
