@@ -27,7 +27,7 @@
         <style>
 
             body {
-                background: url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
+                background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("<?php echo Storage::disk('local')->url($cliente->url . '/' . $cliente->fundo); ?>");
                 background-size: cover;
                 background-attachment: fixed;
             }
