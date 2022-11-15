@@ -129,7 +129,7 @@
                         </div>
                         <div class="btnLinks">
                             @if (!is_null($cliente->whatsapp))
-                                <a class="btn btn-outline-light btn-xs m-2"
+                                <a class="btn btn-outline-light btn-lg m-2"
                                     href="https://wa.me/{{ $cliente->whatsapp }}" role="button" rel="nofollow"
                                     target="_blank"> <i style="font-size:20px !important;"class="fa fa-whatsapp"></i>  Chame no whatsapp</a>
                             @endif
