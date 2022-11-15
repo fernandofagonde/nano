@@ -121,11 +121,10 @@
                     <div>
                         <h1 class="mb-3">{!! $cliente->titulo !!}</h1>
                         <h5 class="mb-4 col-lg-10 col-md-12">{!! $cliente->descricao !!}</h5>
-                        <div class="mb-4 col-lg-10 col-md-12">
+                        <div class="mb-3 col-lg-10 col-md-12">
                             @if (!is_null($cliente->endereco))
                                 <p> Endereço: {!! $cliente->endereco !!}</p>
                             @endif
-
                             @if (!is_null($cliente->telefone))
                                 <p> Telefone: {!! $cliente->telefone !!} </p>
                             @endif
@@ -166,6 +165,14 @@
         </div>
         <!-- Background image -->
     </header>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        nano® ecossistema de inovação e empreendedorismo <a class="text-white" href="https://ipsillon.cc/">Ípsillon®</a>.
+    </div>
+    <!-- Copyright -->
+    <footer>
+        
+    </footer>
     <!--Main Navigation-->
 
     <!-- Font Awesome -->
