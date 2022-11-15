@@ -155,7 +155,8 @@ class ClientesController extends Controller
  public function public($cliente)
     { 
         $clientes = new Clientes();
-        $cliente = $clientes->where('url','=', $cliente)->first();   
+        $cliente = $clientes->where('url','=', $cliente)->first(); 
+        $cliente->whatsapp = so_numero($cliente->whatsapp );  
 
         return view('clientes.public', compact('cliente'));
     }
