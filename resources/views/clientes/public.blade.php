@@ -32,10 +32,9 @@
                 background-attachment: fixed;
             }
 
-            /*
             .mask{
                 height: 100vh;
-            }*/
+            }
 
             /* Espaçamento Superior e inferior da logo */
             .container img ,btn {
