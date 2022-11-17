@@ -139,7 +139,6 @@ class ClientesController extends Controller
         
         if ($request->file('fundo')) {
             $fundo = $request->file('fundo');
-            dd($fundo);
             
             $nome_fundo = 'fundo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $fundo->getClientOriginalExtension();
 
