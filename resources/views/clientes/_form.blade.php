@@ -4,19 +4,23 @@
         <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-12')
-                @slot('label', 'Nome')
-                @slot('name', 'nome')
-                @slot('value', $cliente->nome)
-                @slot('required', true)
+                @slot('label', 'Título')
+                @slot('name', 'titulo')
+                @slot('value', $cliente->titulo)
             @endcomponent
         </div>
         <div class="form-row">
             @component('components.form-input')
-                @slot('column_size', 'col-md-12')
-                @slot('label', 'Endereço')
-                @slot('name', 'endereco')
-                @slot('value', $cliente->endereco)
-                @slot('required', true)
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'URL (https://nano.ipsillon.cc/_______)')
+                @slot('name', 'url')
+                @slot('value', $cliente->url)
+            @endcomponent
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Razão Social')
+                @slot('name', 'razao')
+                @slot('value', $cliente->razao)
             @endcomponent
         </div>
         <div class="form-row">
@@ -37,14 +41,22 @@
                 @slot('value', $cliente->whatsapp)
                 @slot('input_class', 'phone-mask')
             @endcomponent
+
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
-                @slot('label', 'Telefone')
-                @slot('name', 'telefone')
-                @slot('value', $cliente->telefone)
-                @slot('input_class', 'phone-mask')
+                @slot('label', 'Endereço')
+                @slot('name', 'endereco')
+                @slot('value', $cliente->endereco)
+                @slot('required', true)
             @endcomponent
-
+        </div>
+        <div class="form-row">
+            @component('components.form-textarea')
+                @slot('column_size', 'col-md-12')
+                @slot('label', 'Decrição')
+                @slot('name', 'descricao')
+                @slot('value', $cliente->descricao)
+            @endcomponent
         </div>
         <div class="form-row">
             @component('components.form-input')
@@ -62,66 +74,6 @@
                 @slot('value', $cliente->fundo)
             @endcomponent
         </div>
-
-        <div class="form-row">
-            @component('components.form-input')
-                @slot('column_size', 'col-md-12')
-                @slot('label', 'Título')
-                @slot('name', 'titulo')
-                @slot('value', $cliente->titulo)
-            @endcomponent
-        </div>
-        <div class="form-row">
-            @component('components.form-textarea')
-                @slot('column_size', 'col-md-12')
-                @slot('label', 'Decrição')
-                @slot('name', 'descricao')
-                @slot('value', $cliente->descricao)
-            @endcomponent
-        </div>
-        <div class="form-row">
-            @component('components.form-input')
-                @slot('column_size', 'col-md-6')
-                @slot('label', 'URL (https://nano.ipsillon.cc/_______)')
-                @slot('name', 'url')
-                @slot('value', $cliente->url)
-            @endcomponent
-
-            @component('components.form-input')
-                @slot('column_size', 'col-md-6')
-                @slot('label', 'Instagram')
-                @slot('name', 'instagram')
-                @slot('value', $cliente->instagram)
-            @endcomponent
-        </div>
-        <div class="form-row">
-            @component('components.form-input')
-                @slot('column_size', 'col-md-3')
-                @slot('label', 'Facebook')
-                @slot('name', 'facebook')
-                @slot('value', $cliente->facebook)
-            @endcomponent
-            @component('components.form-input')
-                @slot('column_size', 'col-md-3')
-                @slot('label', 'Youtube')
-                @slot('name', 'youtube')
-                @slot('value', $cliente->youtube)
-            @endcomponent
-
-            @component('components.form-input')
-                @slot('column_size', 'col-md-3')
-                @slot('label', 'Linkedin')
-                @slot('name', 'linkedin')
-                @slot('value', $cliente->linkedin)
-            @endcomponent
-            @component('components.form-input')
-                @slot('column_size', 'col-md-3')
-                @slot('label', 'site/loja virtual')
-                @slot('name', 'site')
-                @slot('value', $cliente->site)
-            @endcomponent
-
-        </div>
         <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-4')
@@ -130,6 +82,7 @@
                 @slot('name', 'font_color')
                 @slot('value', $cliente->font_color)
             @endcomponent
+
             @component('components.form-input')
                 @slot('column_size', 'col-md-4')
                 @slot('type', 'color');
@@ -137,6 +90,7 @@
                 @slot('name', 'button_color')
                 @slot('value', $cliente->button_color)
             @endcomponent
+
             @component('components.form-input')
                 @slot('type', 'color');
                 @slot('column_size', 'col-md-4')
@@ -144,14 +98,51 @@
                 @slot('name', 'button_font_color')
                 @slot('value', $cliente->button_font_color)
             @endcomponent
+
         </div>
         <div class="form-row">
             @component('components.form-input')
-            @slot('column_size', 'col-md-12')
-            @slot('label', 'Categorias (separado por ";")')
-            @slot('name', 'categorias')
-            @slot('value', $cliente->categorias)
-        @endcomponent
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Instagram')
+                @slot('name', 'instagram')
+                @slot('value', $cliente->instagram)
+            @endcomponent
+ 
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Facebook')
+                @slot('name', 'facebook')
+                @slot('value', $cliente->facebook)
+            @endcomponent
+        </div>
+        <div class="form-row">
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Youtube')
+                @slot('name', 'youtube')
+                @slot('value', $cliente->youtube)
+            @endcomponent
+
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Linkedin')
+                @slot('name', 'linkedin')
+                @slot('value', $cliente->linkedin)
+            @endcomponent
+        </div>
+        <div class="form-row">
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'site/loja virtual')
+                @slot('name', 'site')
+                @slot('value', $cliente->site)
+            @endcomponent
+            @component('components.form-input')
+                @slot('column_size', 'col-md-6')
+                @slot('label', 'Áreas (separado por ";")')
+                @slot('name', 'area')
+                @slot('value', $cliente->area)
+            @endcomponent
         </div>
     </div>
 </div>

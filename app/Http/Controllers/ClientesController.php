@@ -59,8 +59,9 @@ class ClientesController extends Controller
 
     public function store(ClientesRequest $request)
     {
+        dd($request);
         $cliente = $this->clientes->fill($request->all());
-        
+
         if ($request->logo || $request->fundo) {
             $imagens = $this->imageUpload($request);
             if ($imagens['logo']) {
@@ -69,8 +70,8 @@ class ClientesController extends Controller
             if ($imagens['fundo']) {
                 $cliente->fundo = $imagens['fundo'];
             }
-        }   
-        
+        }
+
         $cliente->save();
         session()->flash('notice', [
             'type' => 'success',
@@ -102,7 +103,7 @@ class ClientesController extends Controller
             }
             if (isset($imagens['fundo'])) {
                 $form_data['fundo'] = $imagens['fundo'];
-            }            
+            }
         }
 
         $cliente->update($form_data);
@@ -133,33 +134,31 @@ class ClientesController extends Controller
             $logo = $request->file('logo');
             $nome_logo = 'logo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $logo->getClientOriginalExtension();
 
-            Storage::disk('local')->put('public/'.Str::slug($request->get('url')) . '/' . $nome_logo, file_get_contents($logo),  'public');
+            Storage::disk('local')->put('public/' . Str::slug($request->get('url')) . '/' . $nome_logo, file_get_contents($logo),  'public');
             $imagens['logo'] = $nome_logo;
         }
-        
+
         if ($request->file('fundo')) {
             $fundo = $request->file('fundo');
-            
+
             $nome_fundo = 'fundo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $fundo->getClientOriginalExtension();
 
-            Storage::disk('local')->put('public/'.Str::slug($request->get('url')) . '/' . $nome_fundo, file_get_contents($fundo), 'public');
+            Storage::disk('local')->put('public/' . Str::slug($request->get('url')) . '/' . $nome_fundo, file_get_contents($fundo), 'public');
             $imagens['fundo'] = $nome_fundo;
-        }        
+        }
         return ($imagens);
     }
 
 
-/**
- * Aqui mostra o conteúdo/
- *    */
- public function public($cliente)
-    { 
+    /**
+     * Aqui mostra o conteúdo/
+     *    */
+    public function public($cliente)
+    {
         $clientes = new Clientes();
-        $cliente = $clientes->where('url','=', $cliente)->first(); 
-        $cliente->whatsapp = so_numero($cliente->whatsapp );  
+        $cliente = $clientes->where('url', '=', $cliente)->first();
+        $cliente->whatsapp = so_numero($cliente->whatsapp);
 
         return view('clientes.public', compact('cliente'));
     }
-
-
 }
