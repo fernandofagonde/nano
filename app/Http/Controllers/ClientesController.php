@@ -135,8 +135,9 @@ class ClientesController extends Controller
             $nome_logo = 'logo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $logo->getClientOriginalExtension();
 
             Storage::disk('local')->put('public/' . Str::slug($request->get('url')) . '/' . $nome_logo, file_get_contents($logo),  'public');
-            $directory = storage_path('public/' . Str::slug($request->get('url')));
+            $directory = storage_path('public/' . Str::slug($request->get('url')));            
             Storage::disk('local')->setVisibility($directory, 'public');
+            chmod($directory, 0755);
             $imagens['logo'] = $nome_logo;
         }
 
@@ -148,6 +149,7 @@ class ClientesController extends Controller
             Storage::disk('local')->put('public/' . Str::slug($request->get('url')) . '/' . $nome_fundo, file_get_contents($fundo), 'public');
             $directory = storage_path('public/' . Str::slug($request->get('url')));
             Storage::disk('local')->setVisibility($directory, 'public');
+            chmod($directory, 0755);
             $imagens['fundo'] = $nome_fundo;
         }
         return ($imagens);
