@@ -56,4 +56,6 @@ Route::group(['middleware' => 'auth'], function () {
     $controller = 'ClientesController';
 
         Route::get('/{cliente}', ['as' => 'public', 'uses' => $controller . '@public']);
-  
+
+
+

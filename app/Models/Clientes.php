@@ -17,6 +17,8 @@ class Clientes extends Authenticatable
         'nome',
         'email',
         'telefone',
+        'razao',
+        'cpf_cnpj',
         'endereco',
         'titulo',
         'descricao',

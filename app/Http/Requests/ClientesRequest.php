@@ -24,7 +24,7 @@ class ClientesRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            
+                
             'whatsapp' => 'required',
             'email' => 'required|email',
             'font_color' => 'required',

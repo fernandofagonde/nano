@@ -1,6 +1,5 @@
 <div class="card">
     <div class="card-body pb-2">
-
         <div class="form-row">
             @component('components.form-input')
                 @slot('column_size', 'col-md-12')
@@ -69,7 +68,7 @@
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('type', 'file')
-                @slot('label', 'Fundo')
+                @slot('label', 'Fundo ')
                 @slot('name', 'fundo')
                 @slot('value', $cliente->fundo)
             @endcomponent
@@ -139,7 +138,7 @@
             @endcomponent
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
-                @slot('label', 'Áreas (separado por ";")')
+                @slot('label', 'Categorias (separado por ";")')
                 @slot('name', 'area')
                 @slot('value', $cliente->area)
             @endcomponent

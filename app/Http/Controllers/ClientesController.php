@@ -59,7 +59,7 @@ class ClientesController extends Controller
 
     public function store(ClientesRequest $request)
     {
-        dd($request);
+        
         $cliente = $this->clientes->fill($request->all());
 
         if ($request->logo || $request->fundo) {

@@ -19,7 +19,7 @@ class CreateClientesTable extends Migration
             $table->text('titulo');
             $table->text('url');
             $table->text('razao');
-            $table->text('cpf_cnpj');
+            $table->text('cpf_cnpj')->nullable();
             $table->text('email')->nullable();
             $table->text('whatsapp')->nullable();
 	        $table->text('endereco')->nullable();
