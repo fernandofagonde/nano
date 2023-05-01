@@ -61,14 +61,14 @@
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('type', 'file')
-                @slot('label', 'Logo (250X150px)')
+                @slot('label', 'Logo (250px X 250px)')
                 @slot('name', 'logo')
                 @slot('value', $cliente->logo)
             @endcomponent
             @component('components.form-input')
                 @slot('column_size', 'col-md-6')
                 @slot('type', 'file')
-                @slot('label', 'Fundo ')
+                @slot('label', 'Fundo (1912px X 1080px)')
                 @slot('name', 'fundo')
                 @slot('value', $cliente->fundo)
             @endcomponent

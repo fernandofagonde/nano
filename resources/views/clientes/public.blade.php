@@ -64,7 +64,7 @@
                     <div class="col-md-3 col-12 text-center mb-2">
                         <a class="btn w-100" href="https://wa.me/{{ $cliente->whatsapp }}" role="button" rel="nofollow"
                             target="_blank"> <i
-                                style="font-size:20px !important;"class="fa fa-whatsapp"></i>Whatsapp</a>
+                                style="font-size:20px !important;"class="fa fa-whatsapp"></i> Whatsapp</a>
                     </div>
                 @endif
                 @if (!is_null($cliente->instagram))
@@ -97,7 +97,7 @@
             <div class="col-12 text-center">
                 <span class="small w-100">
                     Nano - Ecossistema de Inovação e Empreendedorismo da <strong>Ípsillon®</strong>.
-                </span> <a class="text-white small" href="https://nano.ipsillon.cc" target="_blank">Faça parte.</a>
+                </span> <a class="text-white small" href="https://nano.ipsillon.xyz" target="_blank">Faça parte.</a>
             </div>
         </div>
     </div>

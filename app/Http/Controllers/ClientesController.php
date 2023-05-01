@@ -133,25 +133,21 @@ class ClientesController extends Controller
         if ($request->file('logo')) {
             $logo = $request->file('logo');
             $nome_logo = 'logo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $logo->getClientOriginalExtension();
-
             Storage::disk('local')->put('public/' . Str::slug($request->get('url')) . '/' . $nome_logo, file_get_contents($logo),  'public');
             $directory = storage_path('app/public/' . Str::slug($request->get('url')));            
-            Storage::disk('local')->setVisibility($directory, 'public');            
-            chmod($directory, 0755);
+            Storage::disk('local')->setVisibility($directory, 'public');                        
             $imagens['logo'] = $nome_logo;
         }
 
         if ($request->file('fundo')) {
             $fundo = $request->file('fundo');
-
             $nome_fundo = 'fundo_' . Str::slug($request->get('nome')) . '_' . Str::random(8) . '.' . $fundo->getClientOriginalExtension();
-
             Storage::disk('local')->put('public/' . Str::slug($request->get('url')) . '/' . $nome_fundo, file_get_contents($fundo), 'public');
             $directory = storage_path('app/public/' . Str::slug($request->get('url')));
-            Storage::disk('local')->setVisibility($directory, 'public');
-            chmod($directory, 0755);
+            Storage::disk('local')->setVisibility($directory, 'public');            
             $imagens['fundo'] = $nome_fundo;
         }
+        chmod($directory, 0755);
         return ($imagens);
     }
 
