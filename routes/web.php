@@ -55,7 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
     $prefix = 'clientes';
     $controller = 'ClientesController';
 
-        Route::get('/{cliente}', ['as' => 'public', 'uses' => $controller . '@public']);
+        Route::get('/{cliente}', ['as' => 'clientes', 'uses' => $controller . '@public']);
 
 
 
